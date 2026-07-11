@@ -1,0 +1,47 @@
+---
+import type { SiteContent } from '../../data/content';
+import Icon from '../Icon.astro';
+interface Props { hero: SiteContent['hero'] }
+const { hero: h } = Astro.props;
+const stepColors = ['var(--green)', 'var(--orange)', 'var(--blue)'];
+---
+<header class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="glow g1"></div>
+  <div class="glow g2"></div>
+  <div class="glow g3"></div>
+
+  <div class="wrap">
+    <div class="hero-a">
+      <span class="eyebrow center">{h.eyebrow}</span>
+
+      <div class="h-xl" style="margin-top:22px">
+        {h.title_a} <span class="tri-text">{h.title_b}</span>
+      </div>
+
+      <p class="lead" style="margin:24px auto 0;max-width:620px">{h.sub}</p>
+
+      <div class="hero-cta" style="margin-top:38px">
+        <a href="/contacto" class="btn btn-primary btn-lg">
+          {h.ctaPrimary}
+          <span class="arr" style="display:inline-flex">
+            <Icon name="arrow" size={19} sw={2} />
+          </span>
+        </a>
+        <a href="/servicios" class="btn btn-ghost btn-lg">{h.ctaGhost}</a>
+      </div>
+
+      <div class="hero-steps" style="justify-content:center;margin-top:46px">
+        {h.steps.map((s, i) => (
+          <>
+            <span class="hero-step">
+              <span class="n" style={`background:${stepColors[i]}`}>{i + 1}</span>
+              {s}
+            </span>
+            {i < h.steps.length - 1 && <span class="ln"></span>}
+          </>
+        ))}
+      </div>
+    </div>
+  </div>
+</header>

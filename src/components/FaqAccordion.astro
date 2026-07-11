@@ -1,0 +1,26 @@
+---
+interface FaqItem { q: string; a: string }
+interface Props { items: FaqItem[] }
+const { items } = Astro.props;
+---
+<div class="faq" style="margin-top:44px">
+  {items.map((item) => (
+    <div class="card faq-item">
+      <div class="faq-q">
+        {item.q}
+        <span class="pm">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 5v14" /><path d="M5 12h14" />
+          </svg>
+        </span>
+      </div>
+      <div class="faq-a"><p>{item.a}</p></div>
+    </div>
+  ))}
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.faq-item').forEach((item) => {
+    item.addEventListener('click', () => item.classList.toggle('open'));
+  });
+</script>

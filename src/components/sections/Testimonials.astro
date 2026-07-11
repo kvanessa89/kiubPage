@@ -1,0 +1,36 @@
+---
+import type { SiteContent } from '../../data/content';
+import Icon from '../Icon.astro';
+import Heading from '../Heading.astro';
+interface Props { testimonials: SiteContent['testimonials'] }
+const { testimonials: ts } = Astro.props;
+
+function initials(name: string) {
+  return name.split(' ').map((w) => w[0]).slice(0, 2).join('');
+}
+---
+<section class="section" id="testimonials">
+  <div class="wrap">
+    <Heading eyebrow={ts.eyebrow} title={ts.title} center />
+
+    <div class="tst-grid" style="margin-top:52px">
+      {ts.items.map((item) => (
+        <div class="reveal" style="height:100%">
+          <div class="card tst">
+            <div class="stars">
+              {[0,1,2,3,4].map(() => <Icon name="star" size={15} />)}
+            </div>
+            <p>{item.q}</p>
+            <div class="who">
+              <span class="av" style={`background:${item.c}`}>{initials(item.n)}</span>
+              <div>
+                <div class="nm">{item.n}</div>
+                <div class="rl">{item.r}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

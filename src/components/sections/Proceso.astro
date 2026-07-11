@@ -1,0 +1,26 @@
+---
+import type { SiteContent } from '../../data/content';
+import Heading from '../Heading.astro';
+interface Props { process: SiteContent['process']; colored?: boolean; bg?: boolean }
+const { process: p, colored = false, bg = false } = Astro.props;
+const stepColors = ['var(--green)', 'var(--orange)', 'var(--blue)', 'var(--text)'];
+---
+<section
+  class="section tight"
+  id="proceso"
+  style={bg ? 'background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)' : undefined}
+>
+  <div class="wrap">
+    <Heading eyebrow={p.eyebrow} title={p.title} sub={p.sub} center />
+
+    <div class="steps" style="margin-top:52px">
+      {p.steps.map((step, i) => (
+        <div class="card step reveal">
+          <div class="sn" style={colored ? `color:${stepColors[i]}` : undefined}>{String(i + 1).padStart(2, '0')}</div>
+          <h4>{step.t}</h4>
+          <p>{step.d}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

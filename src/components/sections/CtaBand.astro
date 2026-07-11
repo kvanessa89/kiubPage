@@ -1,0 +1,26 @@
+---
+import type { SiteContent } from '../../data/content';
+import Icon from '../Icon.astro';
+interface Props { ctaBand: SiteContent['ctaBand'] }
+const { ctaBand: c } = Astro.props;
+---
+<section class="section tight cta-section">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <div class="glow g1" style="left:-10%;top:-40%"></div>
+      <div class="glow g2" style="right:-10%;bottom:-50%"></div>
+      <div class="inner">
+        <span class="chips"><i></i><i></i><i></i></span>
+        <h2 class="h-lg" style="margin-top:18px">{c.title}</h2>
+        <p class="lead">{c.sub}</p>
+        <div class="hero-cta">
+          <a href="/contacto" class="btn btn-primary btn-lg">
+            {c.primary}
+            <span class="arr" style="display:inline-flex"><Icon name="arrow" size={19} sw={2} /></span>
+          </a>
+          <a href="/contacto" class="btn btn-ghost btn-lg">{c.ghost}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

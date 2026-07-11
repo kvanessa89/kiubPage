@@ -1,0 +1,14 @@
+---
+import type { SiteContent } from '../../data/content';
+interface Props { trust: SiteContent['trust'] }
+const { trust } = Astro.props;
+const logos = ['Autocrash Solutions', 'OviqCR', 'Grupo Jurídico'];
+---
+<div class="trust">
+  <div class="wrap trust-inner">
+    <span class="trust-label">{trust.label}</span>
+    <div class="trust-logos">
+      {logos.map((name) => <span>{name}</span>)}
+    </div>
+  </div>
+</div>

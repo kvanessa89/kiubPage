@@ -1,0 +1,40 @@
+---
+import type { SiteContent } from '../../data/content';
+import Icon from '../Icon.astro';
+import Heading from '../Heading.astro';
+interface Props { services: SiteContent['services'] }
+const { services: s } = Astro.props;
+---
+<section
+  class="section tight"
+  id="services-teaser"
+  style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)"
+>
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:44px">
+      <Heading eyebrow={s.eyebrow} title={s.title} sub={s.sub} />
+      <a href="/servicios" class="btn btn-ghost reveal">
+        {s.cta}
+        <span class="arr" style="display:inline-flex"><Icon name="arrow" size={17} /></span>
+      </a>
+    </div>
+
+    <div class="svc-grid">
+      {s.items.map((item) => (
+        <div class="reveal" style="height:100%">
+          <div class="card svc" style={`--c:${item.color}`}>
+            <div class="svc-ico" style={`color:${item.color}`}>
+              <Icon name={item.icon} size={26} />
+            </div>
+            <h3>{item.name}</h3>
+            <p>{item.desc}</p>
+            <a href="/servicios" class="svc-more" style={`color:${item.color}`}>
+              {s.learn}
+              <span class="arr" style="display:inline-flex"><Icon name="arrow" size={16} sw={2} /></span>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

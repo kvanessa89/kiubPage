@@ -1,0 +1,59 @@
+---
+import type { SiteContent } from '../../data/content';
+import Icon from '../Icon.astro';
+import Heading from '../Heading.astro';
+interface Props { about: SiteContent['about'] }
+const { about: a } = Astro.props;
+const valueIcons = ['heart', 'layers', 'shield'] as const;
+const valueColors = ['var(--green)', 'var(--orange)', 'var(--blue)'];
+const statColors = ['var(--green)', 'var(--orange)', 'var(--blue)', 'var(--text)'];
+---
+<section class="section" id="about">
+  <div class="wrap about" style="align-items:stretch">
+    <div>
+      <Heading eyebrow={a.eyebrow} title={a.title} />
+
+      <div class="about-copy reveal" style="margin-top:24px">
+        {a.paragraphs.map((p, i) => (
+          <p
+            class={i === 0 ? 'lead' : undefined}
+            style={i > 0 ? 'margin-top:18px;color:var(--text-dim)' : undefined}
+          >{p}</p>
+        ))}
+      </div>
+
+      <div class="about-values">
+        {a.values.map((v, i) => (
+          <div class="value reveal">
+            <span class="vi" style={`color:${valueColors[i]}`}>
+              <Icon name={valueIcons[i]} size={19} />
+            </span>
+            <div>
+              <h4>{v.t}</h4>
+              <p>{v.d}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="about-right" style="display:flex;flex-direction:column;gap:18px">
+      <div
+        class="reveal"
+        style="display:flex;align-items:center;justify-content:center;width:100%;flex:1;min-height:280px;color:var(--text-dim);border-radius:16px;overflow:hidden;background:var(--panel);border:1px solid var(--line-2)"
+        aria-label="Espacio reservado para una foto"
+      >
+        <Icon name="image" size={40} />
+      </div>
+
+      <div class="about-stats reveal">
+        {a.stats.map((s, i) => (
+          <div class="stat">
+            <div class="num" style={`color:${statColors[i]}`}>{s.num}</div>
+            <div class="lbl">{s.lbl}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

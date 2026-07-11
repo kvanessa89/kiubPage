@@ -1,0 +1,19 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  sub?: string;
+  center?: boolean;
+}
+const { eyebrow, title, sub, center = false } = Astro.props;
+---
+<div style={center ? 'text-align:center;max-width:720px;margin:0 auto' : undefined}>
+  <span class={`eyebrow${center ? ' center' : ''}`}>{eyebrow}</span>
+  <div class="h-md" style="margin-top:16px">{title}</div>
+  {sub && (
+    <p
+      class="lead"
+      style={`margin-top:16px${center ? ';margin-left:auto;margin-right:auto' : ''}`}
+    >{sub}</p>
+  )}
+</div>
