@@ -18,6 +18,11 @@ const infoColors: Record<string, string> = {
   clock: 'var(--text-dim)',
 };
 ---
+<style>
+  @media (max-width: 600px) {
+    .cinfo-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
 <Base title="Contacto — kiub">
   <Nav />
   <main>
@@ -33,33 +38,31 @@ const infoColors: Record<string, string> = {
 
     <section class="section" style="padding-top:16px">
       <div class="wrap">
-        <div class="cinfo-grid">
-          {c.info.map((item) => {
-            const color = infoColors[item.k] ?? 'var(--text-dim)';
-            const inner = (
-              <>
-                <span class="ci" style={`color:${color}`}>
-                  <Icon name={item.k} size={20} />
-                </span>
-                <div>
-                  <div class="lbl">{item.lbl}</div>
-                  <div class="val">{item.val}</div>
-                </div>
-              </>
-            );
-            return item.href
-              ? <a class="card cinfo-item cinfo-link reveal" href={item.href} target="_blank" rel="noopener noreferrer">{inner}</a>
-              : <div class="card cinfo-item reveal">{inner}</div>;
-          })}
-        </div>
+        {[c.info.slice(0, 3), c.info.slice(3)].map((row, ri) => (
+          <div
+            class="cinfo-grid"
+            style={`grid-template-columns:repeat(${row.length},1fr)${ri > 0 ? ';margin-top:18px' : ''}`}
+          >
+            {row.map((item) => {
+              const color = infoColors[item.k] ?? 'var(--text-dim)';
+              const inner = (
+                <>
+                  <span class="ci" style={`color:${color}`}>
+                    <Icon name={item.k} size={20} />
+                  </span>
+                  <div>
+                    <div class="lbl">{item.lbl}</div>
+                    <div class="val">{item.val}</div>
+                  </div>
+                </>
+              );
+              return item.href
+                ? <a class="card cinfo-item cinfo-link reveal" href={item.href} target="_blank" rel="noopener noreferrer">{inner}</a>
+                : <div class="card cinfo-item reveal">{inner}</div>;
+            })}
+          </div>
+        ))}
 
-        <div class="map map-lg reveal" style="margin-top:22px">
-          <div class="map-grid"></div>
-          <div class="pin"><Icon name="pin" size={34} /></div>
-          <span style="position:absolute;left:50%;top:50%;transform:translate(-50%,16px);color:var(--blue);font-family:var(--font-display);font-weight:600;font-size:14px">
-            San José, Costa Rica
-          </span>
-        </div>
       </div>
     </section>
 

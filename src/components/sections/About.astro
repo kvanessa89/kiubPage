@@ -8,6 +8,25 @@ const valueIcons = ['heart', 'layers', 'shield'] as const;
 const valueColors = ['var(--green)', 'var(--orange)', 'var(--blue)'];
 const statColors = ['var(--green)', 'var(--orange)', 'var(--blue)', 'var(--text)'];
 ---
+<style>
+  .about-team-img {
+    width: 100%;
+    flex: 1;
+    min-height: 280px;
+    border-radius: 16px;
+    object-fit: cover;
+    object-position: left top;
+    display: block;
+  }
+  @media (max-width: 880px) {
+    .about-team-img {
+      flex: none;
+      height: 320px;
+      min-height: unset;
+    }
+  }
+</style>
+
 <section class="section" id="about">
   <div class="wrap about" style="align-items:stretch">
     <div>
@@ -38,13 +57,11 @@ const statColors = ['var(--green)', 'var(--orange)', 'var(--blue)', 'var(--text)
     </div>
 
     <div class="about-right" style="display:flex;flex-direction:column;gap:18px">
-      <div
-        class="reveal"
-        style="display:flex;align-items:center;justify-content:center;width:100%;flex:1;min-height:280px;color:var(--text-dim);border-radius:16px;overflow:hidden;background:var(--panel);border:1px solid var(--line-2)"
-        aria-label="Espacio reservado para una foto"
-      >
-        <Icon name="image" size={40} />
-      </div>
+      <img
+        class="about-team-img reveal"
+        src="/assets/team.jpg"
+        alt="Equipo kiub"
+      />
 
       <div class="about-stats reveal">
         {a.stats.map((s, i) => (

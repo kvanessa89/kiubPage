@@ -83,13 +83,15 @@ const isActive = (href: string) =>
     closeIcon.style.display = open ? '' : 'none';
   });
 
-  // Cerrar al hacer click en un link
+  // Cerrar instantáneamente al hacer click en un link (sin animación)
   menu.querySelectorAll('a').forEach((a) => {
     a.addEventListener('click', () => {
+      menu.style.transition = 'none';
       menu.classList.remove('open');
       burger.setAttribute('aria-expanded', 'false');
       burgerIcon.style.display = '';
       closeIcon.style.display = 'none';
+      requestAnimationFrame(() => { menu.style.transition = ''; });
     });
   });
 </script>

@@ -121,7 +121,7 @@ export const content: Content = {
     servicesPage: {
       eyebrow: "Servicios",
       title: "Soluciones que se arman a tu medida.",
-      sub: "Cada negocio es un cubo distinto. Estos son los bloques con los que ayudamos a resolverlo.",
+      sub: "Cada negocio es distinto. Estos son los bloques con los que ayudamos a resolverlo.",
     },
     contactPage: {
       eyebrow: "Contacto",
