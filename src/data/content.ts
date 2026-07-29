@@ -154,7 +154,7 @@ export const content: Content = {
       cols: [
         { h: "Navegación", links: [["Inicio", "/"], ["Servicios", "/servicios"], ["Contacto", "/contacto"]] },
         { h: "Servicios", links: [["Software a la medida", "/servicios"], ["Automatización", "/servicios"], ["Páginas web", "/servicios"]] },
-        { h: "Empresa", links: [["Quiénes somos", "/"], ["Hablemos", "/contacto"]] },
+        { h: "Empresa", links: [["Quiénes somos", "/#about"], ["Hablemos", "/contacto"]] },
       ],
       rights: "Todos los derechos reservados.",
     },

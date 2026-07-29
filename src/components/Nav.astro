@@ -71,27 +71,30 @@ const isActive = (href: string) =>
 </div>
 
 <script>
-  const burger = document.getElementById('nav-burger')!;
-  const menu = document.getElementById('mmenu')!;
-  const burgerIcon = document.getElementById('burger-icon')!;
-  const closeIcon = document.getElementById('close-icon')!;
+  function initNav() {
+    const burger = document.getElementById('nav-burger')!;
+    const menu = document.getElementById('mmenu')!;
+    const burgerIcon = document.getElementById('burger-icon')!;
+    const closeIcon = document.getElementById('close-icon')!;
 
-  burger.addEventListener('click', () => {
-    const open = menu.classList.toggle('open');
-    burger.setAttribute('aria-expanded', String(open));
-    burgerIcon.style.display = open ? 'none' : '';
-    closeIcon.style.display = open ? '' : 'none';
-  });
-
-  // Cerrar instantáneamente al hacer click en un link (sin animación)
-  menu.querySelectorAll('a').forEach((a) => {
-    a.addEventListener('click', () => {
-      menu.style.transition = 'none';
-      menu.classList.remove('open');
-      burger.setAttribute('aria-expanded', 'false');
-      burgerIcon.style.display = '';
-      closeIcon.style.display = 'none';
-      requestAnimationFrame(() => { menu.style.transition = ''; });
+    burger.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', String(open));
+      burgerIcon.style.display = open ? 'none' : '';
+      closeIcon.style.display = open ? '' : 'none';
     });
-  });
+
+    menu.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', () => {
+        menu.style.transition = 'none';
+        menu.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+        burgerIcon.style.display = '';
+        closeIcon.style.display = 'none';
+        requestAnimationFrame(() => { menu.style.transition = ''; });
+      });
+    });
+  }
+
+  document.addEventListener('astro:page-load', initNav);
 </script>
