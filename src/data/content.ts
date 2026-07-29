@@ -96,9 +96,9 @@ export const content: Content = {
       eyebrow: "Testimonios",
       title: "Lo que dicen quienes ya construyeron con nosotros.",
       items: [
-        { q: "kiub transformó nuestra operación. Automatizaron procesos que nos quitaban días enteros y ahora todo fluye solo.", n: "María Restrepo", r: "Gerente de Operaciones, Logística Andina", c: "var(--green)" },
-        { q: "El software a la medida que desarrollaron se siente como si lo hubiéramos diseñado en casa. Entendieron el negocio de verdad.", n: "Carlos Méndez", r: "CEO, Distribuidora Norte", c: "var(--orange)" },
-        { q: "Nuestra nueva página web triplicó las solicitudes de contacto en dos meses. Equipo cercano y muy profesional.", n: "Laura Gómez", r: "Directora de Marketing, Clínica Vital", c: "var(--blue)" },
+        { q: "kiub transformó nuestra operación. Automatizaron procesos que nos quitaban días enteros y ahora todo fluye solo.", n: "Rebeca", r: "Gerente, Autocrash Solutions", c: "var(--green)" },
+        { q: "Agradecida con el equipo kiub que desde el inicio logró plasmar mis necesidades en un sofware, dando resultados reales y funcionales. Sin duda, lo recomendaria a quien desee un trabajo profesional y de calidad.", n: "Raquel", r: "Gerente, OviqCR", c: "var(--orange)" },
+        { q: "Nuestra nueva página web triplicó las solicitudes de contacto en dos meses. Equipo cercano y muy profesional.", n: "David", r: "Gerente, OviqCR", c: "var(--blue)" },
       ],
     },
     process: {
