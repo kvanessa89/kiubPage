@@ -6,7 +6,7 @@ interface Props {
 }
 const {
   title = 'kiub',
-  description = 'En kiub diseñamos y desarrollamos software a la medida que ordena la complejidad de tu negocios.',
+  description = 'Diseñamos software a medida, automatizamos procesos y creamos soluciones digitales enfocadas en las necesidades reales de cada negocio.',
 } = Astro.props;
 ---
 <!doctype html>
@@ -24,6 +24,17 @@ const {
       rel="stylesheet"
     />
     <title>{title}</title>
+
+    <!-- SEO -->
+    <link rel="canonical" href={new URL(Astro.url.pathname, 'https://kiub.co').href} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={new URL(Astro.url.pathname, 'https://kiub.co').href} />
+
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z07B2NL0HM"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];

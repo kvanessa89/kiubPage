@@ -40,7 +40,7 @@ export const content: Content = {
       eyebrow: "Tecnología & Consultoría de Software",
       title_a: "Construyamos soluciones",
       title_b: "paso a paso",
-      sub: "En kiub diseñamos y desarrollamos software a la medida que ordena la complejidad de tu negocio.",
+      sub: "Diseñamos software a medida, automatizamos procesos y creamos soluciones digitales enfocadas en las necesidades reales de cada negocio.",
       ctaPrimary: "Iniciar un proyecto",
       ctaGhost: "Ver servicios",
       steps: ["Entender", "Construir", "Escalar"],
