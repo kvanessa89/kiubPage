@@ -501,3 +501,15 @@ button{ font-family:inherit; cursor:pointer; }
   .hero-step{ gap:7px; font-size:12.5px; }
   .hero-step .n{ width:25px; height:25px; font-size:12px; border-radius:8px; }
 }
+
+.hero-title{
+  white-space:nowrap;
+}
+
+@media (max-width: 700px){
+  .hero-title{
+    white-space:normal;
+  }
+}
+
+
