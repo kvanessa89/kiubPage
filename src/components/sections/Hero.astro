@@ -15,9 +15,10 @@ const stepColors = ['var(--green)', 'var(--orange)', 'var(--blue)'];
     <div class="hero-a">
       <span class="eyebrow center">{h.eyebrow}</span>
 
-      <div class="h-xl" style="margin-top:22px">
-        {h.title_a} <span class="tri-text">{h.title_b}</span>
-      </div>
+      <h1 class="h-xl" style="margin-top:22px;font-weight:400;white-space:nowrap">
+        <span style="display:block">{h.title_a}</span>
+        <span class="tri-text" style="display:table;margin:18px auto 0">{h.title_b}</span>
+      </h1>
 
       <p class="lead" style="margin:24px auto 0;max-width:620px">{h.sub}</p>
 
