@@ -17,7 +17,7 @@ const stepColors = ['var(--green)', 'var(--orange)', 'var(--blue)', 'var(--text)
       {p.steps.map((step, i) => (
         <div class="card step reveal">
           <div class="sn" style={colored ? `color:${stepColors[i]}` : undefined}>{String(i + 1).padStart(2, '0')}</div>
-          <h4>{step.t}</h4>
+          <h3>{step.t}</h3>
           <p>{step.d}</p>
         </div>
       ))}
