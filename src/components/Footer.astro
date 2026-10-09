@@ -1,12 +1,13 @@
 ---
-import { content } from '../data/content';
-const f = content.es.footer;
+import { useI18n } from '../i18n';
+const { t, r } = useI18n(Astro.url);
+const f = t.footer;
 ---
 <footer class="footer">
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
-        <a href="/" aria-label="kiub inicio">
+        <a href={r.home} aria-label={t.ui.homeAria}>
           <img class="kiub-logo logo-on-dark" src="/assets/kiub-logo.png" alt="kiub" height="30" style="margin-bottom:18px" />
           <img class="kiub-logo logo-on-light" src="/assets/kiub-logo-dark.png" alt="kiub" height="30" style="margin-bottom:18px" />
         </a>

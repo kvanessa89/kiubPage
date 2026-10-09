@@ -1,8 +1,10 @@
 ---
 import type { SiteContent } from '../../data/content';
 import Icon from '../Icon.astro';
+import { routes, getLang } from '../../i18n';
 interface Props { hero: SiteContent['hero'] }
 const { hero: h } = Astro.props;
+const r = routes[getLang(Astro.url)];
 const stepColors = ['var(--green)', 'var(--orange)', 'var(--blue)'];
 ---
 <header class="hero">
@@ -23,13 +25,13 @@ const stepColors = ['var(--green)', 'var(--orange)', 'var(--blue)'];
       <p class="lead" style="margin:24px auto 0;max-width:620px">{h.sub}</p>
 
       <div class="hero-cta" style="margin-top:38px">
-        <a href="/contacto" class="btn btn-primary btn-lg">
+        <a href={r.contact} class="btn btn-primary btn-lg">
           {h.ctaPrimary}
           <span class="arr" style="display:inline-flex">
             <Icon name="arrow" size={19} sw={2} />
           </span>
         </a>
-        <a href="/servicios" class="btn btn-ghost btn-lg">{h.ctaGhost}</a>
+        <a href={r.services} class="btn btn-ghost btn-lg">{h.ctaGhost}</a>
       </div>
 
       <div class="hero-steps" style="justify-content:center;margin-top:46px">

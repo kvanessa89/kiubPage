@@ -2,8 +2,10 @@
 import type { SiteContent } from '../../data/content';
 import Icon from '../Icon.astro';
 import Heading from '../Heading.astro';
+import { useI18n } from '../../i18n';
 interface Props { about: SiteContent['about'] }
 const { about: a } = Astro.props;
+const { t } = useI18n(Astro.url);
 const valueIcons = ['heart', 'layers', 'shield'] as const;
 const valueColors = ['var(--green)', 'var(--orange)', 'var(--blue)'];
 const statColors = ['var(--green)', 'var(--orange)', 'var(--blue)', 'var(--text)'];
@@ -60,7 +62,7 @@ const statColors = ['var(--green)', 'var(--orange)', 'var(--blue)', 'var(--text)
       <img
         class="about-team-img reveal"
         src="/assets/team.jpg"
-        alt="Equipo kiub"
+        alt={t.ui.teamAlt}
       />
 
       <div class="about-stats reveal">

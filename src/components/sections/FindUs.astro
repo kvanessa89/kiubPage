@@ -1,0 +1,105 @@
+---
+import type { SiteContent } from '../../data/content';
+interface Props { findUs: SiteContent['findUs'] }
+const { findUs } = Astro.props;
+
+// DesignRush va sin nofollow (requisito de su programa de partners).
+const logos = [
+  { key: 'clutch', name: 'Clutch', href: 'https://clutch.co/profile/kiub', w: 91.7, h: 26 },
+  { key: 'goodfirms', name: 'GoodFirms', href: 'https://www.goodfirms.co/company/kiub', w: 154.8, h: 30 },
+  { key: 'designrush', name: 'DesignRush', href: 'https://www.designrush.com/agency/software-development', w: 128.3, h: 30, follow: true },
+  { key: 'trustpilot', name: 'Trustpilot', href: 'https://www.trustpilot.com/review/kiub.co', w: 122.2, h: 30 },
+  { key: 'sortlist', name: 'Sortlist', href: 'https://www.sortlist.com/agency/kiub', w: 94.1, h: 24 },
+  // Versión oficial para fondo oscuro
+  { key: 'agencyspotter', file: 'agencyspotter-light', name: 'Agency Spotter', href: 'https://www.agencyspotter.com/kiub', w: 95.4, h: 50, native: true },
+];
+---
+<section class="findus" aria-label={findUs.label}>
+  <p class="findus-label"><span>{findUs.label}</span></p>
+  <div class="findus-marquee">
+    <div class="findus-track">
+      {[false, true].map((copy) => (
+        <ul class="findus-list" aria-hidden={copy ? 'true' : undefined}>
+          {logos.map((l) => (
+            <li>
+              <a
+                class:list={['findus-logo', { native: l.native }]}
+                href={l.href}
+                target="_blank"
+                rel={l.follow ? 'noopener' : 'noopener nofollow'}
+                title={`${findUs.on} ${l.name}`}
+                tabindex={copy ? -1 : undefined}
+              >
+                <img
+                  src={`/logos/${l.file ?? l.key}.svg`}
+                  alt={copy ? '' : `${findUs.on} ${l.name}`}
+                  width={l.w}
+                  height={l.h}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+            </li>
+          ))}
+        </ul>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .findus {
+    --gap: clamp(40px, 6vw, 72px);
+    padding: 40px 0 8px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .findus-label {
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+    margin: 0 auto 20px; max-width: 520px; padding: 0 16px;
+    font-family: var(--font-display); font-size: 12px; font-weight: 600;
+    letter-spacing: .14em; text-transform: uppercase;
+    color: var(--text-mute);
+  }
+  .findus-label::before, .findus-label::after {
+    content: ""; flex: 1; height: 1px; background: var(--line);
+  }
+  .findus-marquee {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 12%, #000 88%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, #000 12%, #000 88%, transparent 100%);
+  }
+  .findus-track {
+    display: flex; width: max-content;
+    animation: findus-scroll 38s linear infinite;
+  }
+  .findus-marquee:hover .findus-track,
+  .findus-marquee:focus-within .findus-track { animation-play-state: paused; }
+  .findus-list {
+    display: flex; align-items: center; gap: var(--gap);
+    list-style: none; margin: 0; padding: 0 calc(var(--gap) / 2);
+  }
+  .findus-list li { flex: none; }
+  .findus-logo {
+    display: flex; align-items: center; height: 58px; padding: 4px 10px; border-radius: 10px;
+    filter: grayscale(1) brightness(0) invert(1); opacity: .6;
+    transition: filter .3s var(--ease), opacity .3s var(--ease), transform .3s var(--ease), background-color .3s var(--ease);
+  }
+  .findus-logo img { display: block; max-width: none; }
+  .findus-logo:hover, .findus-logo:focus-visible {
+    filter: none; opacity: 1; background: #fff; transform: translateY(-1px);
+  }
+  .findus-logo:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+  .findus-logo.native { filter: grayscale(1); opacity: .7; }
+  .findus-logo.native:hover, .findus-logo.native:focus-visible { filter: none; opacity: 1; background: transparent; }
+
+  @keyframes findus-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .findus-marquee { -webkit-mask-image: none; mask-image: none; }
+    .findus-track { animation: none; width: auto; justify-content: center; }
+    .findus-list { flex-wrap: wrap; justify-content: center; gap: 16px clamp(28px, 4vw, 52px); padding: 0 16px; }
+    .findus-list[aria-hidden] { display: none; }
+    .findus-logo { transition: none; }
+  }
+</style>
