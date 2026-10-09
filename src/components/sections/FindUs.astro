@@ -2,12 +2,13 @@
 import type { SiteContent } from '../../data/content';
 interface Props { findUs: SiteContent['findUs'] }
 const { findUs } = Astro.props;
+const labelFor = (l: { name: string; label?: string }) => l.label ?? `${findUs.on} ${l.name}`;
 
-// DesignRush va sin nofollow (requisito de su programa de partners).
+// DesignRush va sin nofollow y con la etiqueta "Find us on DesignRush" (requisitos de su programa de partners).
 const logos = [
   { key: 'clutch', name: 'Clutch', href: 'https://clutch.co/profile/kiub', w: 91.7, h: 26 },
   { key: 'goodfirms', name: 'GoodFirms', href: 'https://www.goodfirms.co/company/kiub', w: 154.8, h: 30 },
-  { key: 'designrush', name: 'DesignRush', href: 'https://www.designrush.com/agency/software-development', w: 128.3, h: 30, follow: true },
+  { key: 'designrush', name: 'DesignRush', href: 'https://www.designrush.com/agency/software-development', w: 128.3, h: 30, follow: true, label: 'Find us on DesignRush' },
   { key: 'trustpilot', name: 'Trustpilot', href: 'https://www.trustpilot.com/review/kiub.co', w: 122.2, h: 30 },
   { key: 'sortlist', name: 'Sortlist', href: 'https://www.sortlist.com/agency/kiub', w: 94.1, h: 24 },
   // Versión oficial para fondo oscuro
@@ -27,12 +28,12 @@ const logos = [
                 href={l.href}
                 target="_blank"
                 rel={l.follow ? 'noopener' : 'noopener nofollow'}
-                title={`${findUs.on} ${l.name}`}
+                title={labelFor(l)}
                 tabindex={copy ? -1 : undefined}
               >
                 <img
                   src={`/logos/${l.file ?? l.key}.svg`}
-                  alt={copy ? '' : `${findUs.on} ${l.name}`}
+                  alt={copy ? '' : labelFor(l)}
                   width={l.w}
                   height={l.h}
                   loading="lazy"

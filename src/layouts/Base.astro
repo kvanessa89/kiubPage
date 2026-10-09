@@ -13,6 +13,36 @@ const {
   description = t.meta.home.description,
 } = Astro.props;
 const abs = (path: string) => new URL(path, 'https://kiub.co').href;
+const canonical = abs(routes[lang][page]);
+
+const organization = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'kiub',
+  url: 'https://kiub.co/',
+  logo: 'https://kiub.co/assets/kiub-logo.png',
+  image: 'https://kiub.co/og-image.png',
+  description: t.meta.home.description,
+  founder: { '@type': 'Person', name: 'Carol Hernández' },
+  foundingDate: '2022',
+  email: 'info@kiub.co',
+  telephone: '+506 6451 1884',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Escazú',
+    addressRegion: 'San José',
+    addressCountry: 'CR',
+  },
+  sameAs: [
+    'https://www.linkedin.com/company/kiub-co/',
+    'https://www.facebook.com/kiub.co.cr',
+    'https://www.instagram.com/kiub.info.cr',
+    'https://clutch.co/profile/kiub',
+    'https://www.goodfirms.co/company/kiub',
+    'https://www.sortlist.com/agency/kiub',
+    'https://www.agencyspotter.com/kiub',
+  ],
+};
 ---
 <!doctype html>
 <html lang={lang} data-theme="dark">
@@ -32,7 +62,7 @@ const abs = (path: string) => new URL(path, 'https://kiub.co').href;
     <ClientRouter />
 
     <!-- SEO -->
-    <link rel="canonical" href={abs(Astro.url.pathname)} />
+    <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang="es" href={abs(routes.es[page])} />
     <link rel="alternate" hreflang="en" href={abs(routes.en[page])} />
     <link rel="alternate" hreflang="x-default" href={abs(routes.es[page])} />
@@ -41,12 +71,24 @@ const abs = (path: string) => new URL(path, 'https://kiub.co').href;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={abs(Astro.url.pathname)} />
+    <meta property="og:site_name" content="kiub" />
+    <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={lang === 'es' ? 'es_CR' : 'en_US'} />
+    <meta property="og:locale:alternate" content={lang === 'es' ? 'en_US' : 'es_CR'} />
     <meta property="og:image" content="https://kiub.co/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content={t.ui.ogAlt} />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://kiub.co/og-image.png" />
+    <meta name="twitter:image:alt" content={t.ui.ogAlt} />
+
+    <!-- Datos estructurados -->
+    <script type="application/ld+json" set:html={JSON.stringify(organization)} />
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z07B2NL0HM"></script>

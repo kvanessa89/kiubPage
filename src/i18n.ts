@@ -4,8 +4,8 @@ export type Lang = 'es' | 'en';
 export type PageKey = 'home' | 'services' | 'contact';
 
 export const routes: Record<Lang, Record<PageKey, string>> = {
-  es: { home: '/', services: '/servicios', contact: '/contacto' },
-  en: { home: '/en/', services: '/en/services', contact: '/en/contact' },
+  es: { home: '/', services: '/servicios/', contact: '/contacto/' },
+  en: { home: '/en/', services: '/en/services/', contact: '/en/contact/' },
 };
 
 export const getLang = (url: URL): Lang =>

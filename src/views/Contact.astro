@@ -57,7 +57,7 @@ const infoColors: Record<string, string> = {
                 </>
               );
               return item.href
-                ? <a class="card cinfo-item cinfo-link reveal" href={item.href} target="_blank" rel="noopener noreferrer">{inner}</a>
+                ? <a class="card cinfo-item cinfo-link reveal" href={item.href} {...(item.href.startsWith('http') && { target: '_blank', rel: 'noopener noreferrer' })}>{inner}</a>
                 : <div class="card cinfo-item reveal">{inner}</div>;
             })}
           </div>

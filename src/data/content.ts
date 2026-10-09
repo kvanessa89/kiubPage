@@ -53,7 +53,7 @@ export const content: Content = {
       eyebrow: "Quiénes somos",
       title: "Construimos tecnología con propósito de negocio.",
       paragraphs: [
-        "Hola, soy Carol Hernández. En Kiub creemos que el mejor software nace de comprender primero el negocio.",
+        "Hola, soy Carol Hernández. En kiub creemos que el mejor software nace de comprender primero el negocio.",
         "Somos una empresa especializada en desarrollo de software, análisis de negocio, automatización y soluciones basadas en datos. Trabajamos junto a nuestros clientes para entender sus procesos, identificar oportunidades de mejora y construir herramientas que realmente generen resultados.",
         "No nos enfocamos únicamente en desarrollar aplicaciones; buscamos crear soluciones que permitan ahorrar tiempo, optimizar operaciones y facilitar la toma de decisiones.",
         "Nuestro compromiso es convertir la tecnología en una ventaja competitiva para cada empresa con la que trabajamos."
@@ -119,7 +119,7 @@ export const content: Content = {
     findUs: { label: "Encuéntranos en", on: "kiub en" },
     meta: {
       home: {
-        title: "Kiub | Software a la medida en Escazú, Costa Rica",
+        title: "kiub | Software a la medida en Escazú, Costa Rica",
         description: "Diseñamos software a medida, automatizamos procesos y creamos soluciones digitales enfocadas en las necesidades reales de cada negocio.",
       },
       services: {
@@ -128,14 +128,14 @@ export const content: Content = {
       },
       contact: {
         title: "Contacto | Software a la medida en Escazú, Costa Rica",
-        description: "Hablemos sobre las necesidades de tu negocio y cómo Kiub puede ayudarte con software, automatización y soluciones digitales.",
+        description: "Hablemos sobre las necesidades de tu negocio y cómo kiub puede ayudarte con software, automatización y soluciones digitales.",
       },
     },
     ui: {
       homeAria: "kiub inicio",
       openMenu: "Abrir menú",
       teamAlt: "Equipo kiub",
-      ogAlt: "Kiub - Software a medida y automatización de procesos",
+      ogAlt: "kiub - Software a medida y automatización de procesos",
       switchLang: "EN",
       switchLangAria: "View in English",
     },
@@ -162,10 +162,10 @@ export const content: Content = {
         errReq: "Este campo es obligatorio", errMail: "Ingresa un correo válido",
       },
       info: [
-        { k: "mail", lbl: "Correo", val: "kiub.info.cr@gmail.com" },
-        { k: "phone", lbl: "Teléfono", val: "+506 6451 1884" },
+        { k: "mail", lbl: "Correo", val: "info@kiub.co", href: "mailto:info@kiub.co" },
+        { k: "phone", lbl: "Teléfono", val: "+506 6451 1884", href: "tel:+50664511884" },
         { k: "wa", lbl: "WhatsApp", val: "+506 6451 1884", href: "https://wa.me/50664511884" },
-        { k: "pin", lbl: "Ubicación", val: "San José, Costa Rica" },
+        { k: "pin", lbl: "Ubicación", val: "Escazú, San José, Costa Rica" },
         { k: "clock", lbl: "Horario", val: "Lun–Vie 8:00–17:00 · Sáb 8:00–12:00" },
       ],
       faqTitle: "Preguntas frecuentes",
@@ -179,9 +179,9 @@ export const content: Content = {
     footer: {
       tagline: "Tecnología y consultoría que impulsan el crecimiento de tu negocio, paso a paso.",
       cols: [
-        { h: "Navegación", links: [["Inicio", "/"], ["Servicios", "/servicios"], ["Contacto", "/contacto"]] },
-        { h: "Servicios", links: [["Software a la medida", "/servicios"], ["Automatización", "/servicios"], ["Páginas web", "/servicios"]] },
-        { h: "Empresa", links: [["Quiénes somos", "/#about"], ["Hablemos", "/contacto"]] },
+        { h: "Navegación", links: [["Inicio", "/"], ["Servicios", "/servicios/"], ["Contacto", "/contacto/"]] },
+        { h: "Servicios", links: [["Software a la medida", "/servicios/"], ["Automatización", "/servicios/"], ["Páginas web", "/servicios/"]] },
+        { h: "Empresa", links: [["Quiénes somos", "/#about"], ["Hablemos", "/contacto/"]] },
       ],
       rights: "Todos los derechos reservados.",
     },
@@ -189,7 +189,7 @@ export const content: Content = {
   en: {
     nav: { home: "Home", services: "Services", contact: "Contact", cta: "Let's talk" },
     hero: {
-      eyebrow: "Software Technology & Consulting",
+      eyebrow: "Software Development & Consulting",
       title_a: "Let's build solutions",
       title_b: "step by step",
       sub: "We design custom software, automate processes and build digital solutions focused on the real needs of each business.",
@@ -202,8 +202,8 @@ export const content: Content = {
       eyebrow: "Who we are",
       title: "We build technology with a business purpose.",
       paragraphs: [
-        "Hi, I'm Carol Hernández. At Kiub, we believe the best software starts with understanding the business first.",
-        "We are a company specialized in software development, business analysis, automation and data-driven solutions. We work alongside our clients to understand their processes, identify opportunities for improvement and build tools that deliver real results.",
+        "Hi, I'm Carol Hernández. At kiub, we believe the best software starts with understanding the business first.",
+        "We specialize in software development, business analysis, automation and data-driven solutions. We work alongside our clients to understand their processes, identify opportunities for improvement and build tools that deliver real results.",
         "We don't just build applications; we create solutions that save time, streamline operations and make decision-making easier.",
         "Our commitment is to turn technology into a competitive advantage for every company we work with."
       ],
@@ -212,8 +212,8 @@ export const content: Content = {
         { num: "14 years", lbl: "Building software" },
       ],
       values: [
-        { t: "Real closeness", d: "An accessible team that speaks your language, not jargon." },
-        { t: "Block by block delivery", d: "Visible progress at every stage, not just at the end." },
+        { t: "Close collaboration", d: "An accessible team that speaks your language, not jargon." },
+        { t: "Block-by-block delivery", d: "Visible progress at every stage, not just at the end." },
         { t: "Engineering quality", d: "Maintainable, secure code built to scale." },
       ],
     },
@@ -233,14 +233,14 @@ export const content: Content = {
         {
           key: "auto", color: "var(--orange)", icon: "gear",
           name: "Process automation",
-          desc: "We remove manual, repetitive work by connecting your teams into automatic, measurable flows.",
+          desc: "We eliminate manual, repetitive work by connecting your teams and tools through automated, measurable workflows.",
           points: ["Automated workflows", "System-to-system integration", "Real-time reports & alerts", "Fewer errors, more speed"],
         },
         {
           key: "web", color: "var(--blue)", icon: "globe",
           name: "Websites",
           desc: "Fast, modern, on-brand sites and landing pages designed to turn visitors into customers.",
-          points: ["Modern, responsive design", "Search engine optimization (SEO)", "High loading speed", "Manageable by your team"],
+          points: ["Modern, responsive design", "Search engine optimization (SEO)", "Fast load times", "Easy for your team to update"],
         },
       ],
     },
@@ -250,14 +250,14 @@ export const content: Content = {
       items: [
         { q: "kiub transformed our operation. They automated processes that took us entire days and now everything just flows.", n: "Rebeca", r: "Manager, Autocrash Solutions", c: "var(--green)" },
         { q: "I'm grateful to the kiub team, who from the very start managed to turn my needs into software that delivers real, functional results. I would definitely recommend them to anyone looking for professional, high-quality work.", n: "Raquel", r: "Manager, OviqCR", c: "var(--orange)" },
-        { q: "The system has helped us enormously to improve our company's organization. We now have greater control over project billing and can better track our team's work, making day-to-day management easier.", n: "David", r: "CEO, OviqCR", c: "var(--blue)" },
+        { q: "The system has greatly helped us improve how our company is organized. We now have greater control over project billing and can better track our team's work, making day-to-day management easier.", n: "David", r: "CEO, OviqCR", c: "var(--blue)" },
         { q: "The solution allows us to optimize our daily operations, access information faster and in a more organized way, and provide more agile and efficient service to our clients.", n: "Blas Araya", r: "CEO, Grupo Jurídico", c: "var(--green)" },
       ],
     },
     process: {
       eyebrow: "How we work",
       title: "A clear process, step by step.",
-      sub: "No surprises. You know what happens in every block of the project.",
+      sub: "No surprises. You know what happens at every stage of the project.",
       steps: [
         { t: "Discovery", d: "We understand your business, goals and the challenge to solve." },
         { t: "Design", d: "We define the solution, the scope and a block-by-block plan." },
@@ -268,7 +268,7 @@ export const content: Content = {
     findUs: { label: "Find us on", on: "kiub on" },
     meta: {
       home: {
-        title: "Kiub | Custom software in Escazú, Costa Rica",
+        title: "kiub | Custom software in Escazú, Costa Rica",
         description: "We design custom software, automate processes and build digital solutions focused on the real needs of each business.",
       },
       services: {
@@ -277,14 +277,14 @@ export const content: Content = {
       },
       contact: {
         title: "Contact | Custom software in Escazú, Costa Rica",
-        description: "Let's talk about your business needs and how Kiub can help with software, automation and digital solutions.",
+        description: "Let's talk about your business needs and how kiub can help with software, automation and digital solutions.",
       },
     },
     ui: {
       homeAria: "kiub home",
       openMenu: "Open menu",
       teamAlt: "kiub team",
-      ogAlt: "Kiub - Custom software and process automation",
+      ogAlt: "kiub - Custom software and process automation",
       switchLang: "ES",
       switchLangAria: "Ver en español",
     },
@@ -297,7 +297,7 @@ export const content: Content = {
     servicesPage: {
       eyebrow: "Services",
       title: "Solutions built around you.",
-      sub: "Every business is different. These are the building blocks we use to help solve it.",
+      sub: "Every business is different. These are the building blocks we use to solve its challenges.",
     },
     contactPage: {
       eyebrow: "Contact",
@@ -311,15 +311,15 @@ export const content: Content = {
         errReq: "This field is required", errMail: "Enter a valid email",
       },
       info: [
-        { k: "mail", lbl: "Email", val: "kiub.info.cr@gmail.com" },
-        { k: "phone", lbl: "Phone", val: "+506 6451 1884" },
+        { k: "mail", lbl: "Email", val: "info@kiub.co", href: "mailto:info@kiub.co" },
+        { k: "phone", lbl: "Phone", val: "+506 6451 1884", href: "tel:+50664511884" },
         { k: "wa", lbl: "WhatsApp", val: "+506 6451 1884", href: "https://wa.me/50664511884" },
-        { k: "pin", lbl: "Location", val: "San José, Costa Rica" },
-        { k: "clock", lbl: "Hours", val: "Mon–Fri 8:00–17:00 · Sat 8:00–12:00" },
+        { k: "pin", lbl: "Location", val: "Escazú, San José, Costa Rica" },
+        { k: "clock", lbl: "Hours", val: "Mon–Fri 8:00 a.m.–5:00 p.m. · Sat 8:00 a.m.–12:00 p.m. (Costa Rica time, GMT-6)" },
       ],
       faqTitle: "Frequently asked questions",
       faq: [
-        { q: "How much does a project cost?", a: "It depends on the scope. After a free first conversation we send a clear proposal with a fixed or block-based price, no hidden costs." },
+        { q: "How much does a project cost?", a: "It depends on the scope. After a free initial consultation, we send you a clear proposal with a fixed or per-block price and no hidden costs." },
         { q: "How long does development take?", a: "A website usually takes 1 to 2 weeks; custom software, 4 to 5 weeks depending on complexity. We always deliver in blocks so you see progress early." },
         { q: "Do you work with companies outside Costa Rica?", a: "Yes. We work remotely with clients across Latin America and the US, with regular meetings and constant communication." },
         { q: "Do you provide support after launch?", a: "Yes. We offer support and maintenance plans so your solution keeps running and evolving with your business." },
@@ -328,9 +328,9 @@ export const content: Content = {
     footer: {
       tagline: "Technology and consulting that drive your business growth, step by step.",
       cols: [
-        { h: "Navigation", links: [["Home", "/en/"], ["Services", "/en/services"], ["Contact", "/en/contact"]] },
-        { h: "Services", links: [["Custom software", "/en/services"], ["Automation", "/en/services"], ["Websites", "/en/services"]] },
-        { h: "Company", links: [["Who we are", "/en/#about"], ["Let's talk", "/en/contact"]] },
+        { h: "Navigation", links: [["Home", "/en/"], ["Services", "/en/services/"], ["Contact", "/en/contact/"]] },
+        { h: "Services", links: [["Custom software", "/en/services/"], ["Automation", "/en/services/"], ["Websites", "/en/services/"]] },
+        { h: "Company", links: [["Who we are", "/en/#about"], ["Let's talk", "/en/contact/"]] },
       ],
       rights: "All rights reserved.",
     },
