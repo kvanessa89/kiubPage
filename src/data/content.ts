@@ -101,8 +101,8 @@ export const content: Content = {
       items: [
         { q: "kiub transformó nuestra operación. Automatizaron procesos que nos quitaban días enteros y ahora todo fluye solo.", n: "Rebeca", r: "Gerente, Autocrash Solutions", c: "var(--green)" },
         { q: "Agradecida con el equipo kiub que desde el inicio logró plasmar mis necesidades en un software, dando resultados reales y funcionales. Sin duda, lo recomendaría a quien desee un trabajo profesional y de calidad.", n: "Raquel", r: "Gerente, OviqCR", c: "var(--orange)" },
-        { q: "El sistema nos ha ayudado muchísimo a mejorar la organización de nuestra empresa. Ahora tenemos mayor control sobre la facturación de los proyectos y podemos dar un mejor seguimiento al trabajo de nuestro equipo, facilitando la gestión diaria.", n: "David", r: "Gerente, OviqCR", c: "var(--blue)" },
-        { q: "La solución nos permite optimizar nuestras operaciones diarias, acceder a la información de forma más rápida y organizada, y brindar una atención más ágil y eficiente a nuestros clientes.", n: "Blas Araya", r: "Gerente, Grupo Jurídico", c: "var(--green)" },
+        { q: "El sistema nos ha ayudado muchísimo a mejorar la organización de nuestra empresa. Ahora tenemos mayor control sobre la facturación de los proyectos y podemos dar un mejor seguimiento al trabajo de nuestro equipo, facilitando la gestión diaria.", n: "David", r: "CEO, OviqCR", c: "var(--blue)" },
+        { q: "La solución nos permite optimizar nuestras operaciones diarias, acceder a la información de forma más rápida y organizada, y brindar una atención más ágil y eficiente a nuestros clientes.", n: "Blas Araya", r: "CEO, Grupo Jurídico", c: "var(--green)" },
       ],
     },
     process: {
@@ -250,8 +250,8 @@ export const content: Content = {
       items: [
         { q: "kiub transformed our operation. They automated processes that took us entire days and now everything just flows.", n: "Rebeca", r: "Manager, Autocrash Solutions", c: "var(--green)" },
         { q: "I'm grateful to the kiub team, who from the very start managed to turn my needs into software that delivers real, functional results. I would definitely recommend them to anyone looking for professional, high-quality work.", n: "Raquel", r: "Manager, OviqCR", c: "var(--orange)" },
-        { q: "The system has helped us enormously to improve our company's organization. We now have greater control over project billing and can better track our team's work, making day-to-day management easier.", n: "David", r: "Manager, OviqCR", c: "var(--blue)" },
-        { q: "The solution allows us to optimize our daily operations, access information faster and in a more organized way, and provide more agile and efficient service to our clients.", n: "Blas Araya", r: "Manager, Grupo Jurídico", c: "var(--green)" },
+        { q: "The system has helped us enormously to improve our company's organization. We now have greater control over project billing and can better track our team's work, making day-to-day management easier.", n: "David", r: "CEO, OviqCR", c: "var(--blue)" },
+        { q: "The solution allows us to optimize our daily operations, access information faster and in a more organized way, and provide more agile and efficient service to our clients.", n: "Blas Araya", r: "CEO, Grupo Jurídico", c: "var(--green)" },
       ],
     },
     process: {
