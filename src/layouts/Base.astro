@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
 interface Props {
   title?: string;
   description?: string;
@@ -24,6 +25,7 @@ const {
       rel="stylesheet"
     />
     <title>{title}</title>
+    <ClientRouter />
 
     <!-- SEO -->
     <link rel="canonical" href={new URL(Astro.url.pathname, 'https://kiub.co').href} />

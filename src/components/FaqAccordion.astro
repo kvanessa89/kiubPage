@@ -20,7 +20,9 @@ const { items } = Astro.props;
 </div>
 
 <script>
-  document.querySelectorAll<HTMLElement>('.faq-item').forEach((item) => {
-    item.addEventListener('click', () => item.classList.toggle('open'));
+  document.addEventListener('astro:page-load', () => {
+    document.querySelectorAll<HTMLElement>('.faq-item').forEach((item) => {
+      item.addEventListener('click', () => item.classList.toggle('open'));
+    });
   });
 </script>

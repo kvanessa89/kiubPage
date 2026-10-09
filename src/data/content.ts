@@ -136,8 +136,8 @@ export const content: Content = {
       },
       info: [
         { k: "mail", lbl: "Correo", val: "kiub.info.cr@gmail.com" },
-        { k: "phone", lbl: "Teléfono", val: "+506 6023 4113" },
-        { k: "wa", lbl: "WhatsApp", val: "+506 6023 4113", href: "https://wa.me/50660234113" },
+        { k: "phone", lbl: "Teléfono", val: "+506 6451 1884" },
+        { k: "wa", lbl: "WhatsApp", val: "+506 6451 1884", href: "https://wa.me/50664511884" },
         { k: "pin", lbl: "Ubicación", val: "San José, Costa Rica" },
         { k: "clock", lbl: "Horario", val: "Lun–Vie 8:00–17:00 · Sáb 8:00–12:00" },
       ],
@@ -259,8 +259,8 @@ export const content: Content = {
       },
       info: [
         { k: "mail", lbl: "Email", val: "kiub.info.cr@gmail.com" },
-        { k: "phone", lbl: "Phone", val: "+506 6023 4113" },
-        { k: "wa", lbl: "WhatsApp", val: "+506 6023 4113", href: "https://wa.me/50660234113" },
+        { k: "phone", lbl: "Phone", val: "+506 6451 1884" },
+        { k: "wa", lbl: "WhatsApp", val: "+506 6451 1884", href: "https://wa.me/50664511884" },
         { k: "pin", lbl: "Location", val: "San José, Costa Rica" },
         { k: "clock", lbl: "Hours", val: "Mon–Fri 8:00–17:00 · Sat 8:00–12:00" },
       ],
