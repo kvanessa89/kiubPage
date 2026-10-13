@@ -13,11 +13,14 @@
   },
   "dependencies": {
     "@astrojs/react": "^5.0.7",
+    "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "astro": "^6.4.6",
+    "mdast-util-to-string": "^4.0.0",
     "react": "^19.2.7",
-    "react-dom": "^19.2.7"
+    "react-dom": "^19.2.7",
+    "unist-util-visit": "^5.1.0"
   }
 }

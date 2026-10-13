@@ -8,7 +8,7 @@ interface FaqItem { q: string; a: string }
 interface FooterCol { h: string; links: [string, string][] }
 
 export interface SiteContent {
-  nav: { home: string; services: string; contact: string; cta: string };
+  nav: { home: string; services: string; blog?: string; contact: string; cta: string };
   hero: { eyebrow: string; title_a: string; title_b: string; sub: string; ctaPrimary: string; ctaGhost: string; steps: string[] };
   trust: { label: string };
   about: { eyebrow: string; title: string; paragraphs: string[]; stats: Stat[]; values: ValueItem[] };
@@ -38,7 +38,7 @@ export interface Content { es: SiteContent; en: SiteContent }
 
 export const content: Content = {
   es: {
-    nav: { home: "Inicio", services: "Servicios", contact: "Contacto", cta: "Hablemos" },
+    nav: { home: "Inicio", services: "Servicios", blog: "Blog", contact: "Contacto", cta: "Hablemos" },
     hero: {
       eyebrow: "Tecnología & Consultoría de Software",
       title_a: "Construyamos soluciones",
@@ -179,9 +179,9 @@ export const content: Content = {
     footer: {
       tagline: "Tecnología y consultoría que impulsan el crecimiento de tu negocio, paso a paso.",
       cols: [
-        { h: "Navegación", links: [["Inicio", "/"], ["Servicios", "/servicios/"], ["Contacto", "/contacto/"]] },
+        { h: "Navegación", links: [["Inicio", "/"], ["Servicios", "/servicios/"], ["Blog", "/blog/"], ["Contacto", "/contacto/"]] },
         { h: "Servicios", links: [["Software a la medida", "/servicios/"], ["Automatización", "/servicios/"], ["Páginas web", "/servicios/"]] },
-        { h: "Empresa", links: [["Quiénes somos", "/#about"], ["Hablemos", "/contacto/"]] },
+        { h: "Empresa", links: [["Quiénes somos", "/#about"], ["Blog", "/blog/"], ["Hablemos", "/contacto/"]] },
       ],
       rights: "Todos los derechos reservados.",
     },

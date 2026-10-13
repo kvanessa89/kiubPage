@@ -1,0 +1,23 @@
+---
+import Cover from './Cover.astro';
+import BlogIcon from './BlogIcon.astro';
+import { category, formatShort, isoDate, postUrl, type PostCard } from '../../lib/blog';
+
+interface Props { card: PostCard }
+const { post, minutesRead } = Astro.props.card;
+const { data } = post;
+---
+<article class="b-card" data-tags={data.tags.join('|')}>
+  <a class="card-link" href={postUrl(post)}>
+    <Cover src={data.cover} alt={data.coverAlt} sizes="(max-width: 760px) 100vw, (max-width: 980px) 50vw, 380px" />
+    <div class="card-body">
+      <span class="cat">{category(post)}</span>
+      <h3 class="card-title">{data.title}</h3>
+      <p class="card-excerpt">{data.description}</p>
+      <div class="meta">
+        <span><BlogIcon name="calendar" /><time datetime={isoDate(data.date)}>{formatShort(data.date)}</time></span>
+        <span><BlogIcon name="clock" />{minutesRead} min de lectura</span>
+      </div>
+    </div>
+  </a>
+</article>

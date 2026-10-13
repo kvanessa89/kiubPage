@@ -1,0 +1,19 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getPosts, toCards, type Post } from '../../lib/blog';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => ({ params: { slug: post.data.slug }, props: { post, posts } }));
+}
+
+interface Props { post: Post; posts: Post[] }
+const { post, posts } = Astro.props;
+
+// "Sigue leyendo": los de `related`, o los 3 más recientes.
+const others = posts.filter((p) => p.id !== post.id);
+const bySlug = new Map(others.map((p) => [p.data.slug, p]));
+const picked = (post.data.related ?? []).map((s) => bySlug.get(s)).filter((p): p is Post => !!p);
+const related = await toCards((picked.length ? picked : others).slice(0, 3));
+---
+<BlogPost post={post} related={related} />

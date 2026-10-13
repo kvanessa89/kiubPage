@@ -1,0 +1,19 @@
+---
+// Íconos del blog (trazos del mockup design-reference/blog/diseno-blog.html).
+interface Props {
+  name: 'calendar' | 'clock' | 'arrow' | 'mail' | 'whatsapp' | 'linkedin' | 'facebook' | 'x' | 'link' | 'rss';
+}
+const { name } = Astro.props;
+const stroke = { fill: 'none', stroke: 'currentColor', 'stroke-width': 2, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' };
+const solid = { fill: 'currentColor' };
+---
+{name === 'calendar' && <svg class="i" viewBox="0 0 24 24" {...stroke} aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M3 10h18M8 3v4M16 3v4" /></svg>}
+{name === 'clock' && <svg class="i" viewBox="0 0 24 24" {...stroke} aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>}
+{name === 'arrow' && <svg class="i" viewBox="0 0 24 24" {...stroke} aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>}
+{name === 'mail' && <svg class="i" viewBox="0 0 24 24" {...stroke} aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg>}
+{name === 'link' && <svg class="i" viewBox="0 0 24 24" {...stroke} aria-hidden="true"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1" /><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" /></svg>}
+{name === 'rss' && <svg class="i" viewBox="0 0 24 24" {...stroke} aria-hidden="true"><path d="M5 11a8 8 0 0 1 8 8M5 5a14 14 0 0 1 14 14" /><circle cx="6" cy="18" r="1" fill="currentColor" /></svg>}
+{name === 'whatsapp' && <svg class="i" viewBox="0 0 24 24" {...solid} aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.6-.1 1.2z" /></svg>}
+{name === 'linkedin' && <svg class="i" viewBox="5.85 4.7 14 14" {...solid} aria-hidden="true"><path d="M7.15 9.85h2.4V17h-2.4zM8.35 6.4a1.4 1.4 0 1 1 0 2.8 1.4 1.4 0 0 1 0-2.8zM11.1 9.85h2.3v.98c.32-.6 1.1-1.23 2.27-1.23 2.43 0 2.88 1.6 2.88 3.68V17h-2.4v-3.3c0-.79-.02-1.8-1.1-1.8-1.1 0-1.27.86-1.27 1.75V17h-2.4z" /></svg>}
+{name === 'facebook' && <svg class="i" viewBox="5.05 4.55 16 16" {...solid} aria-hidden="true"><path d="M15.4 8.6h1.4V6.2c-.24-.03-1.07-.1-2.03-.1-2.02 0-3.4 1.24-3.4 3.5v2.05H9.3v2.7h2.07V19h2.72v-6.65h2.06l.33-2.7h-2.39V9.9c0-.78.21-1.3 1.31-1.3z" /></svg>}
+{name === 'x' && <svg class="i" viewBox="0 0 24 24" {...solid} aria-hidden="true"><path d="M17.5 4h2.6l-5.7 6.5L21 20h-5.2l-4.1-5.3L7 20H4.4l6.1-7L4 4h5.3l3.7 4.9zm-.9 14.4h1.4L8.5 5.5H7z" /></svg>}

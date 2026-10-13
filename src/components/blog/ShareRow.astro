@@ -1,0 +1,20 @@
+---
+import BlogIcon from './BlogIcon.astro';
+
+interface Props { url: string; title: string }
+const { url, title } = Astro.props;
+const u = encodeURIComponent(url);
+const t = encodeURIComponent(title);
+const links = [
+  { icon: 'linkedin', label: 'Compartir en LinkedIn', href: `https://www.linkedin.com/sharing/share-offsite/?url=${u}` },
+  { icon: 'whatsapp', label: 'Compartir en WhatsApp', href: `https://wa.me/?text=${t}%20${u}` },
+  { icon: 'facebook', label: 'Compartir en Facebook', href: `https://www.facebook.com/sharer/sharer.php?u=${u}` },
+  { icon: 'x', label: 'Compartir en X', href: `https://x.com/intent/post?url=${u}&text=${t}` },
+] as const;
+---
+<div class="share-row">
+  {links.map((l) => (
+    <a class={`sh-${l.icon}`} href={l.href} target="_blank" rel="noopener" aria-label={l.label}><BlogIcon name={l.icon} /></a>
+  ))}
+  <button type="button" class="copy" data-url={url} aria-label="Copiar enlace"><BlogIcon name="link" /></button>
+</div>

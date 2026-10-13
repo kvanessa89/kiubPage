@@ -1,0 +1,141 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppFab from '../../components/WhatsAppFab.astro';
+import Cover from '../../components/blog/Cover.astro';
+import PostCard from '../../components/blog/PostCard.astro';
+import BlogIcon from '../../components/blog/BlogIcon.astro';
+import CtaBand from '../../components/sections/CtaBand.astro';
+import { content } from '../../data/content';
+import { category, formatShort, getPosts, isoDate, postUrl, SITE, toCards } from '../../lib/blog';
+import '../../styles/blog.css';
+
+const title = 'Blog | kiub';
+const description = 'Costos reales, ejemplos prácticos y guías honestas sobre software a la medida, automatización y sitios web para pymes en Costa Rica.';
+const canonical = `${SITE}/blog/`;
+
+const cards = await toCards(await getPosts());
+const featured = cards.find((c) => c.post.data.featured) ?? cards[0];
+const rest = cards.filter((c) => c !== featured);
+
+// Filtro: los 6 tags más usados (empate: orden alfabético).
+const counts = new Map<string, number>();
+for (const { post } of cards) for (const tag of post.data.tags) counts.set(tag, (counts.get(tag) ?? 0) + 1);
+const topTags = [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'es')).slice(0, 6);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Blog',
+      '@id': `${canonical}#blog`,
+      name: 'Blog de kiub',
+      description,
+      url: canonical,
+      inLanguage: 'es-CR',
+      publisher: { '@type': 'Organization', name: 'kiub', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/assets/kiub-logo.png` } },
+      blogPost: cards.map(({ post }) => ({
+        '@type': 'BlogPosting',
+        headline: post.data.title,
+        url: `${SITE}${postUrl(post)}`,
+        datePublished: isoDate(post.data.date),
+      })),
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE}/` },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: canonical },
+      ],
+    },
+  ],
+};
+---
+<Base title={title} description={description} canonical={canonical} alternates={false}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <Nav />
+  <main class="blog">
+    <header class="bhero">
+      <div class="wrap">
+        <span class="eyebrow">Blog de kiub</span>
+        <h1>Ideas claras para <span class="tri-text">decidir mejor</span> sobre tecnología</h1>
+        <p class="lead">{description}</p>
+      </div>
+    </header>
+
+    {featured && (
+      <section class="b-section sec-featured" aria-labelledby="h-feat">
+        <div class="wrap">
+          <h2 id="h-feat" class="sr-only">Artículo destacado</h2>
+          <article class="featured" data-tags={featured.post.data.tags.join('|')}>
+            <a class="featured-link" href={postUrl(featured.post)}>
+              <Cover src={featured.post.data.cover} alt={featured.post.data.coverAlt} sizes="(max-width: 980px) 100vw, 620px" priority />
+              <div class="featured-body">
+                <div class="featured-top"><span class="badge">Destacado</span><span class="cat">{category(featured.post)}</span></div>
+                <h3 class="featured-title">{featured.post.data.title}</h3>
+                <p class="card-excerpt">{featured.post.data.description}</p>
+                <div class="meta">
+                  <span class="m-author"><span class="avatar sm" aria-hidden="true">CH</span>{featured.post.data.author}</span>
+                  <span><BlogIcon name="calendar" /><time datetime={isoDate(featured.post.data.date)}>{formatShort(featured.post.data.date)}</time></span>
+                  <span><BlogIcon name="clock" />{featured.minutesRead} min de lectura</span>
+                </div>
+                <span class="readmore">Leer artículo <BlogIcon name="arrow" /></span>
+              </div>
+            </a>
+          </article>
+        </div>
+      </section>
+    )}
+
+    <section class="b-section" aria-labelledby="h-all">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 id="h-all">Todos los artículos</h2>
+          <a class="rss" href="/rss.xml"><BlogIcon name="rss" />RSS</a>
+        </div>
+        <div class="filters" role="group" aria-label="Filtrar por tema">
+          <button type="button" class="chip on" data-filter="*" aria-pressed="true">Todos <span>{cards.length}</span></button>
+          {topTags.map(([tag, n]) => (
+            <button type="button" class="chip" data-filter={tag} aria-pressed="false">{tag} <span>{n}</span></button>
+          ))}
+        </div>
+        <div class="grid" id="blog-grid">
+          {rest.map((card) => <PostCard card={card} />)}
+        </div>
+        <p class="empty" id="blog-empty" hidden>No hay artículos con este tema todavía.</p>
+      </div>
+    </section>
+
+    <CtaBand ctaBand={content.es.ctaBand} />
+  </main>
+  <Footer />
+  <WhatsAppFab />
+</Base>
+
+<script>
+  // Filtro por tema: oculta tarjetas (y el destacado) según data-tags.
+  function initBlogFilter() {
+    const chips = document.querySelectorAll<HTMLButtonElement>('.blog .chip');
+    if (!chips.length) return;
+    const items = document.querySelectorAll<HTMLElement>('.blog [data-tags]');
+    const empty = document.getElementById('blog-empty');
+    chips.forEach((chip) =>
+      chip.addEventListener('click', () => {
+        const f = chip.dataset.filter!;
+        chips.forEach((c) => {
+          c.classList.toggle('on', c === chip);
+          c.setAttribute('aria-pressed', String(c === chip));
+        });
+        let visible = 0;
+        items.forEach((el) => {
+          const ok = f === '*' || el.dataset.tags!.split('|').includes(f);
+          el.hidden = !ok;
+          if (ok) visible++;
+        });
+        if (empty) empty.hidden = visible > 0;
+      }),
+    );
+  }
+  document.addEventListener('astro:page-load', initBlogFilter);
+</script>

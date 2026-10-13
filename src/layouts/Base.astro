@@ -5,16 +5,26 @@ import { useI18n, routes, getPage } from '../i18n';
 interface Props {
   title?: string;
   description?: string;
+  /** Páginas fuera de las rutas fijas (p. ej. el blog) pasan su URL canónica. */
+  canonical?: string;
+  /** false = sin hreflang ni og:locale:alternate (páginas sin traducción). */
+  alternates?: boolean;
+  ogType?: 'website' | 'article';
+  ogImage?: string;
+  ogImageAlt?: string;
 }
 const { lang, t } = useI18n(Astro.url);
 const page = getPage(Astro.url);
+const abs = (path: string) => new URL(path, 'https://kiub.co').href;
 const {
   title = 'kiub',
   description = t.meta.home.description,
+  canonical = abs(routes[lang][page]),
+  alternates = true,
+  ogType = 'website',
+  ogImage = abs(lang === 'en' ? '/og-image-en.png' : '/og-image.png'),
+  ogImageAlt = t.ui.ogAlt,
 } = Astro.props;
-const abs = (path: string) => new URL(path, 'https://kiub.co').href;
-const canonical = abs(routes[lang][page]);
-const ogImage = abs(lang === 'en' ? '/og-image-en.png' : '/og-image.png');
 
 const organization = {
   '@context': 'https://schema.org',
@@ -64,32 +74,38 @@ const organization = {
 
     <!-- SEO -->
     <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang="es" href={abs(routes.es[page])} />
-    <link rel="alternate" hreflang="en" href={abs(routes.en[page])} />
-    <link rel="alternate" hreflang="x-default" href={abs(routes.es[page])} />
+    {alternates && (
+      <>
+        <link rel="alternate" hreflang="es" href={abs(routes.es[page])} />
+        <link rel="alternate" hreflang="en" href={abs(routes.en[page])} />
+        <link rel="alternate" hreflang="x-default" href={abs(routes.es[page])} />
+      </>
+    )}
+    <link rel="alternate" type="application/rss+xml" title="Blog de kiub" href="/rss.xml" />
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content="kiub" />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={lang === 'es' ? 'es_CR' : 'en_US'} />
-    <meta property="og:locale:alternate" content={lang === 'es' ? 'en_US' : 'es_CR'} />
+    {alternates && <meta property="og:locale:alternate" content={lang === 'es' ? 'en_US' : 'es_CR'} />}
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={t.ui.ogAlt} />
+    <meta property="og:image:alt" content={ogImageAlt} />
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
-    <meta name="twitter:image:alt" content={t.ui.ogAlt} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
 
     <!-- Datos estructurados -->
     <script type="application/ld+json" set:html={JSON.stringify(organization)} />
+    <slot name="head" />
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z07B2NL0HM"></script>

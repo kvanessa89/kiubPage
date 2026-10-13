@@ -1,0 +1,205 @@
+---
+import { getImage } from 'astro:assets';
+import { render } from 'astro:content';
+import Base from './Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFab from '../components/WhatsAppFab.astro';
+import Cover from '../components/blog/Cover.astro';
+import PostCard from '../components/blog/PostCard.astro';
+import ShareRow from '../components/blog/ShareRow.astro';
+import BlogIcon from '../components/blog/BlogIcon.astro';
+import { category, formatLong, isoDate, postUrl, SITE, type Post, type PostCard as Card } from '../lib/blog';
+import '../styles/blog.css';
+
+interface Props {
+  post: Post;
+  related: Card[];
+}
+const { post, related } = Astro.props;
+const { data } = post;
+const { Content, headings, remarkPluginFrontmatter } = await render(post);
+const minutesRead = remarkPluginFrontmatter.minutesRead as number;
+
+const url = data.canonical ?? `${SITE}${postUrl(post)}`;
+const shortTitle = data.title.split(':')[0];
+const modified = data.updated ?? data.date;
+const og = await getImage({ src: data.cover, width: 1200, height: 630, fit: 'cover', format: 'jpg' });
+const ogImage = new URL(og.src, SITE).href;
+
+// TOC: los H2 del cuerpo + "Preguntas frecuentes" en la posición donde remarkBlogFaq insertó el acordeón.
+const toc = headings.filter((h) => h.depth === 2).map(({ slug, text }) => ({ slug, text }));
+const faqIndex = remarkPluginFrontmatter.faqIndex as number | undefined;
+if (faqIndex !== undefined) toc.splice(faqIndex, 0, { slug: 'preguntas-frecuentes', text: 'Preguntas frecuentes' });
+
+const author = { '@type': 'Person', name: data.author, jobTitle: 'Founder & CEO', url: `${SITE}/` };
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BlogPosting',
+      headline: data.title,
+      description: data.description,
+      image: ogImage,
+      datePublished: isoDate(data.date),
+      dateModified: isoDate(modified),
+      author,
+      publisher: { '@type': 'Organization', name: 'kiub', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/assets/kiub-logo.png` } },
+      mainEntityOfPage: url,
+      inLanguage: 'es-CR',
+      keywords: data.tags.join(', '),
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${SITE}/` },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE}/blog/` },
+        { '@type': 'ListItem', position: 3, name: data.title, item: url },
+      ],
+    },
+    ...(data.faq?.length
+      ? [{
+          '@type': 'FAQPage',
+          mainEntity: data.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+        }]
+      : []),
+  ],
+};
+---
+<Base
+  title={`${data.title} | kiub`}
+  description={data.description}
+  canonical={url}
+  alternates={false}
+  ogType="article"
+  ogImage={ogImage}
+  ogImageAlt={data.coverAlt}
+>
+  <Fragment slot="head">
+    <meta property="article:published_time" content={data.date.toISOString()} />
+    <meta property="article:modified_time" content={modified.toISOString()} />
+    <meta property="article:author" content={data.author} />
+    {data.tags.map((tag) => <meta property="article:tag" content={tag} />)}
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </Fragment>
+
+  <Nav />
+  <main class="blog">
+    <article class="post">
+      <div class="layout">
+        <header class="post-head">
+          <nav class="crumbs" aria-label="Migas de pan">
+            <ol>
+              <li><a href="/">Inicio</a></li>
+              <li><a href="/blog/">Blog</a></li>
+              <li aria-current="page">{shortTitle}</li>
+            </ol>
+          </nav>
+          <span class="cat">{category(post)}</span>
+          <h1>{data.title}</h1>
+          <p class="lead">{data.description}</p>
+          <div class="byline">
+            <span class="avatar" aria-hidden="true">CH</span>
+            <div class="byline-txt"><b>{data.author}</b><span>Founder &amp; CEO, kiub</span></div>
+            <div class="byline-meta">
+              <span><BlogIcon name="calendar" /><time datetime={isoDate(data.date)}>{formatLong(data.date)}</time></span>
+              <span><BlogIcon name="clock" />{minutesRead} min de lectura</span>
+            </div>
+          </div>
+        </header>
+
+        <figure class="pcover">
+          <Cover src={data.cover} alt={data.coverAlt} sizes="(max-width: 760px) 100vw, 700px" priority />
+        </figure>
+
+        <aside class="toc" aria-label="Tabla de contenidos">
+          <div class="toc-in">
+            <nav aria-labelledby="toc-h">
+              <p class="toc-h" id="toc-h">En este artículo</p>
+              <ol>
+                {toc.map((h, i) => (
+                  <li><a href={`#${h.slug}`}><span class="toc-n">{String(i + 1).padStart(2, '0')}</span><span>{h.text}</span></a></li>
+                ))}
+              </ol>
+            </nav>
+            <div class="share">
+              <p class="toc-h">Compartir</p>
+              <ShareRow url={url} title={data.title} />
+            </div>
+          </div>
+        </aside>
+
+        <div class="pbody">
+          <div class="prose">
+            <Content />
+          </div>
+
+          <div class="share share-m">
+            <p class="toc-h">Compartir este artículo</p>
+            <ShareRow url={url} title={data.title} />
+          </div>
+
+          <div class="authorbox">
+            <span class="avatar lg" aria-hidden="true">CH</span>
+            <div>
+              <b>{data.author}</b>
+              <span class="role">Founder &amp; CEO, kiub</span>
+              <p>kiub es una consultora de software a la medida en Escazú, Costa Rica. Desde 2022 ayudamos a pymes y empresas medianas a convertir procesos en sistemas que ahorran tiempo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    {related.length > 0 && (
+      <section class="b-section related" aria-labelledby="h-rel">
+        <div class="wrap">
+          <div class="sec-head">
+            <h2 id="h-rel">Sigue leyendo</h2>
+            <a class="rss" href="/blog/">Ver todo el blog <BlogIcon name="arrow" /></a>
+          </div>
+          <div class="grid">
+            {related.map((card) => <PostCard card={card} />)}
+          </div>
+        </div>
+      </section>
+    )}
+  </main>
+  <Footer />
+  <WhatsAppFab />
+</Base>
+
+<script>
+  let observer: IntersectionObserver | undefined;
+
+  function initPost() {
+    observer?.disconnect();
+    const links = [...document.querySelectorAll<HTMLAnchorElement>('.toc a')];
+    if (links.length) {
+      const mark = (id: string) => links.forEach((l) => l.classList.toggle('on', l.hash === `#${id}`));
+      observer = new IntersectionObserver(
+        (entries) => entries.forEach((e) => e.isIntersecting && mark(e.target.id)),
+        { rootMargin: '-90px 0px -70% 0px' },
+      );
+      links.forEach((l) => {
+        const target = document.getElementById(decodeURIComponent(l.hash.slice(1)));
+        if (target) observer!.observe(target);
+      });
+      mark(decodeURIComponent(links[0].hash.slice(1)));
+    }
+
+    document.querySelectorAll<HTMLButtonElement>('.share-row .copy').forEach((btn) =>
+      btn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(btn.dataset.url!);
+          btn.classList.add('done');
+          setTimeout(() => btn.classList.remove('done'), 1500);
+        } catch {
+          /* sin permiso de portapapeles: no hacemos nada */
+        }
+      }),
+    );
+  }
+
+  document.addEventListener('astro:page-load', initPost);
+</script>

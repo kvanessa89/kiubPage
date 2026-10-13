@@ -11,6 +11,10 @@ export const routes: Record<Lang, Record<PageKey, string>> = {
 export const getLang = (url: URL): Lang =>
   url.pathname === '/en' || url.pathname.startsWith('/en/') ? 'en' : 'es';
 
+/** El blog solo existe en español por ahora (/blog/ y /blog/<slug>/). */
+export const BLOG_PATH = '/blog/';
+export const isBlog = (url: URL) => url.pathname === '/blog' || url.pathname.startsWith(BLOG_PATH);
+
 export const getPage = (url: URL): PageKey => {
   const path = url.pathname.replace(/\/$/, '') || '/';
   for (const lang of ['es', 'en'] as Lang[]) {
