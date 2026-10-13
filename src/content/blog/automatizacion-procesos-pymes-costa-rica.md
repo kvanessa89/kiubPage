@@ -16,7 +16,7 @@ faq:
   - q: "¿Necesito un sistema a la medida para automatizar?"
     a: "No siempre. Muchos flujos simples se resuelven con herramientas como Zapier o Make conectando lo que ya usas. Un desarrollo a la medida conviene cuando el volumen es alto, las reglas son complejas o las herramientas que usas no se pueden conectar fácilmente."
   - q: "¿Cuánto cuesta automatizar un proceso?"
-    a: "Las herramientas sin código tienen planes desde unos US$9 al mes (Make Core) o US$69 al mes (Zapier Team), según su página de precios. Configurar un flujo simple con un especialista suele costar entre US$300 y US$800 según guías del sector. En kiub estimamos US$500 a US$4.000 por automatización puntual a precios tradicionales."
+    a: "Las herramientas sin código tienen planes desde unos US$9 al mes (Make Core) o US$69 al mes (Zapier Team), según su página de precios. Configurar un flujo simple con un especialista suele costar entre US$300 y US$800 según guías del sector. En kiub estimamos US$300–1.600 por automatización puntual (20–80 h a US$15–20/h)."
   - q: "¿La automatización reemplaza a mi equipo?"
     a: "No es el objetivo. Se trata de quitarle al equipo el trabajo mecánico de copiar datos, perseguir información y armar reportes para que dedique ese tiempo a clientes y decisiones."
 related: ["senales-pyme-necesita-software-a-la-medida", "saas-vs-software-a-la-medida-pymes", "software-a-la-medida-costa-rica-costo"]
@@ -90,13 +90,13 @@ Empieza por uno. Mide cuánto tiempo toma hoy, automatízalo, y vuelve a medir. 
 <tbody>
 <tr><th scope="row">Ideal para</th><td>Flujos simples entre aplicaciones populares</td><td>Reglas propias, alto volumen o sistemas sin conector</td></tr>
 <tr><th scope="row">Costo de herramienta</th><td><a href="https://www.make.com/en/pricing">Make Core</a> ~US$9/mes por 10.000 créditos; <a href="https://zapier.com/pricing">Zapier Team</a> US$69/mes por 2.000 tareas (precios públicos, oct. 2026)</td><td>Hosting, normalmente un monto fijo mensual</td></tr>
-<tr><th scope="row">Costo de configuración</th><td>US$300–800 por flujo simple según <a href="https://joinpond.ai/blog/zapier-expert">guías del sector</a></td><td>Estimado de kiub: US$500–4.000 por automatización puntual a precios tradicionales</td></tr>
+<tr><th scope="row">Costo de configuración</th><td>US$300–800 por flujo simple según <a href="https://joinpond.ai/blog/zapier-expert">guías del sector</a></td><td>Estimado de kiub: US$300–1.600 por automatización puntual (20–80 h a US$15–20/h)</td></tr>
 <tr><th scope="row">Riesgo</th><td>El costo sube con el volumen; los flujos se rompen si una app cambia</td><td>Inversión inicial; requiere un proveedor que lo mantenga</td></tr>
 </tbody>
 </table>
 </figure>
 
-No es una elección de todo o nada. Muchas veces lo correcto es empezar con una herramienta sin código para validar el proceso y, si el volumen crece o las reglas se complican, pasarlo a un desarrollo propio. En kiub usamos desarrollo asistido por IA y estimamos que eso puede bajar el costo de un desarrollo a la medida hasta a la mitad frente a un desarrollo tradicional (es nuestra estimación, no una garantía).
+No es una elección de todo o nada. Muchas veces lo correcto es empezar con una herramienta sin código para validar el proceso y, si el volumen crece o las reglas se complican, pasarlo a un desarrollo propio. En kiub usamos IA en todo el proceso de desarrollo, por eso nuestras tarifas rondan los US$15–20 por hora y la mayoría de los proyectos quedan por debajo de US$5.000.
 
 ## Errores comunes
 

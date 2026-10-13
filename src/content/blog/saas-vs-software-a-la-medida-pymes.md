@@ -13,11 +13,11 @@ draft: false
 featured: true
 faq:
   - q: "¿A partir de cuántos empleados conviene el software a la medida frente al SaaS?"
-    a: "En nuestro modelo, con 10 personas el stack SaaS completo casi siempre gana. Con 25 depende de qué tan caras sean las herramientas, y con 50 un sistema propio frente a un stack de gama media se recupera en unos dos años incluso a precios tradicionales."
+    a: "Depende del tamaño y del stack. A precios tradicionales, con 10 personas gana el SaaS y con 50 un sistema propio se recupera en unos dos años frente a un stack de gama media. Con desarrollo asistido por IA se paga antes: frente a gama media, en un año y medio con 10 personas y en unos seis meses con 25; frente a un stack económico, en casi cuatro años con 25 personas, mientras que con 10 sigue ganando el SaaS."
   - q: "¿Qué costos del SaaS no aparecen en el precio por usuario?"
     a: "La implementación u onboarding (en algunos planes es obligatorio), las integraciones entre herramientas, el tiempo que el equipo pierde duplicando datos y la capacitación en cada herramienta."
   - q: "¿Cuánto cuesta una primera versión de un sistema propio para una pyme?"
-    a: "Para un núcleo integrado de ventas, pedidos, inventario y tickets estimamos de US$25.000 a US$60.000 a precios de mercado tradicionales. Es un estimado de kiub, no una cotización; con desarrollo asistido por IA estimamos que puede bajar hasta la mitad."
+    a: "Para un núcleo integrado de ventas, pedidos, inventario y tickets, a precios de mercado ronda los US$17.500–60.000. En kiub, con desarrollo asistido por IA, estimamos US$4.500–12.000. Es un estimado, no una cotización."
   - q: "¿Tengo que elegir entre SaaS y software propio?"
     a: "No. Para muchas pymes lo más sensato es un modelo híbrido: un núcleo propio para lo que te diferencia y pocas herramientas SaaS para lo estándar, como facturación electrónica, contabilidad y correo."
 related: ["senales-pyme-necesita-software-a-la-medida", "software-a-la-medida-costa-rica-costo", "automatizacion-procesos-pymes-costa-rica"]
@@ -25,7 +25,7 @@ related: ["senales-pyme-necesita-software-a-la-medida", "software-a-la-medida-co
 
 <!-- Publicado originalmente en Medium; la versión canónica es esta. -->
 
-> **En resumen:** con precios públicos de octubre de 2026, el stack SaaS gana con 10 personas, depende con 25 y empieza a perder con 50. Te dejamos los números y los supuestos para que los ajustes a tu caso.
+> **En resumen:** con precios públicos de octubre de 2026 y a precios tradicionales, el stack SaaS gana con 10 personas, depende con 25 y empieza a perder con 50. Con desarrollo asistido por IA, un sistema propio se paga antes en casi todos los escenarios. Te dejamos los números y los supuestos para que los ajustes a tu caso.
 
 Haz este ejercicio: abre el estado de cuenta de la tarjeta de la empresa y suma todo lo que dice "/mes". CRM, facturación, recursos humanos, proyectos, soporte, el conector que pasa los datos de uno a otro. Cada cargo, por separado, parece pequeño. Juntos, y multiplicados por cada persona que contratas, suelen ser una de las partidas que más crece sin que nadie la haya aprobado como tal.
 
@@ -49,7 +49,7 @@ Dos efectos se combinan. Primero, **el costo escala con la plantilla**: si pasas
 
 **Las integraciones.** Para que el CRM le pase datos a facturación y a soporte, alguien tiene que conectarlos. Las guías de costos de especialistas en Zapier ([ejemplo](https://joinpond.ai/blog/zapier-expert)) hablan de US$300 a US$800 por flujo simple y de US$3.000 a US$10.000 o más por un sistema de automatización entre áreas. Además, cada flujo hay que mantenerlo cuando una de las herramientas cambia algo.
 
-**El tiempo de la gente.** Hay varias contraseñas, el mismo cliente aparece escrito de tres formas y alguien exporta un CSV cada viernes para conciliar. Un estudio publicado en [Harvard Business Review (2022)](https://hbr.org/2022/08/how-much-time-and-energy-do-we-waste-toggling-between-applications) midió que en equipos de tres empresas Fortune 500 las personas cambiaban de aplicación unas 1.200 veces al día y perdían **poco menos de 4 horas a la semana** reorientándose, cerca del 9% de su tiempo. Una pyme no es una Fortune 500, así que no trasladamos esa cifra tal cual. Te dejamos un **supuesto ajustable**: si 8 personas de oficina pierden 1 hora semanal en duplicar datos y conciliar, con un costo laboral (salario más cargas) de US$8 por hora, el resultado es de unos **US$3.000 al año**. Cambia las cifras por las tuyas. Las tablas de abajo no incluyen este costo, para no inflar la comparación.
+**El tiempo de la gente.** Hay varias contraseñas, el mismo cliente aparece escrito de tres formas y alguien exporta un CSV cada viernes para conciliar. Un estudio publicado en [Harvard Business Review (2022)](https://hbr.org/2022/08/how-much-time-and-energy-do-we-waste-toggling-between-applications) midió que en equipos de tres empresas Fortune 500 las personas cambiaban de aplicación unas 1.200 veces al día y perdían **poco menos de 4 horas a la semana** reorientándose, cerca del 9% de su tiempo. Una pyme no es una Fortune 500, así que no trasladamos esa cifra tal cual. Te dejamos un **supuesto ajustable**: si 8 personas de oficina pierden 1 hora semanal en duplicar datos y conciliar, con un costo laboral (salario más cargas) de US$8 por hora, el resultado es de unos **US$3.300 al año**. Cambia las cifras por las tuyas. Las tablas de abajo no incluyen este costo, para no inflar la comparación.
 
 **La capacitación.** Cada herramienta tiene su propia lógica, su propio menú y sus propias actualizaciones. Cada persona nueva aprende cinco sistemas, no uno.
 
@@ -93,28 +93,29 @@ Aquí hay que ser cuidadosos. **No hay un precio único** y las cifras que sigue
 
 - La [encuesta de GoodFirms de 2026](https://www.goodfirms.co/resources/custom-software-development-cost-survey) indica que el 65,7% de los proyectos de software a la medida cuesta entre US$30.000 y US$100.000, y el 14,1% menos de US$30.000.
 - En [Clutch](https://clutch.co/developers/pricing), el rango de proyecto más común es de US$10.000 a US$49.999, y la mayoría de las empresas cobra entre US$25 y US$49 por hora.
-- En Costa Rica, la tarifa mediana de un desarrollador senior freelance ronda los US$41 por hora, según [Lemon.io](https://lemon.io/rate-calculator/costa-rica/).
+- En Costa Rica, la tarifa mediana de un desarrollador senior freelance ronda los US$41 por hora, según [Lemon.io](https://lemon.io/rate-calculator/costa-rica/). En kiub trabajamos por debajo de US$20 por hora.
 
-Para un núcleo integrado (clientes y ventas, pedidos ligados a inventario, tickets, proyectos y expedientes de personal, conectado con Alegra para la facturación electrónica) estimamos una **primera versión de US$25.000 a US$60.000**. Eso equivale a unas 700 a 1.200 horas a US$35–50 por hora. Para el **mantenimiento** usamos la regla práctica de la industria, un 15–20% anual del costo de construcción (es una convención, no un estudio). Para el **hosting** calculamos unos US$100–300 al mes con base de datos administrada, respaldos y monitoreo (referencia: [DigitalOcean](https://www.digitalocean.com/pricing/managed-databases)).
+Para un núcleo integrado (clientes y ventas, pedidos ligados a inventario, tickets, proyectos y expedientes de personal, conectado con Alegra para la facturación electrónica), a precios de mercado (unas 700 a 1.200 horas a US$25–50 por hora), una **primera versión costaría de US$17.500 a US$60.000**. En kiub, con desarrollo asistido por IA, estimamos 300 a 600 horas a US$15–20 por hora: **US$4.500 a US$12.000**. Para el **mantenimiento** usamos la regla práctica de la industria, un 15–20% anual del costo de construcción (es una convención, no un estudio). Para el **hosting** calculamos unos US$100–300 al mes con base de datos administrada, respaldos y monitoreo (referencia: [DigitalOcean](https://www.digitalocean.com/pricing/managed-databases)).
 
-**En kiub, gracias al desarrollo asistido por IA, estimamos que estos costos pueden reducirse hasta a la mitad.** Es nuestra estimación según nuestra forma de trabajar, no una estadística de mercado. Por eso aparece como una columna aparte y etiquetada.
+**En kiub, gracias a la IA, estimamos que estos costos bajan de forma importante.** Es nuestra estimación según nuestra forma de trabajar, no una estadística de mercado. Por eso aparece como una columna aparte y etiquetada.
 
 <figure class="table-figure">
 <table>
 <caption>Tabla 2. Software a la medida frente a SaaS: costo y punto de equilibrio (USD)</caption>
 <thead>
-<tr><th scope="col">Concepto</th><th scope="col">Tradicional (mercado)</th><th scope="col">kiub + IA (estimado de kiub, ~50%)</th></tr>
+<tr><th scope="col">Concepto</th><th scope="col">Tradicional (mercado)</th><th scope="col">kiub + IA (estimado de kiub, 300–600 h a US$15–20/h)</th></tr>
 </thead>
 <tbody>
-<tr><th scope="row">Inversión inicial</th><td>US$25.000 – 60.000</td><td>US$12.500 – 30.000</td></tr>
-<tr><th scope="row">Mantenimiento + hosting/año</th><td>US$4.950 – 15.600</td><td>US$3.075 – 9.600</td></tr>
-<tr><th scope="row">TCO 3 años</th><td>US$39.850 – 106.800</td><td>US$21.725 – 58.800</td></tr>
-<tr><th scope="row">TCO 5 años</th><td>US$49.750 – 138.000</td><td>US$27.875 – 78.000</td></tr>
-<tr><th scope="row">Equilibrio · 10 emp., gama media</th><td>No en 10 años</td><td>~8,1 años</td></tr>
-<tr><th scope="row">Equilibrio · 25 emp., gama media</th><td>~7,2 años</td><td>~2,4 años</td></tr>
-<tr><th scope="row">Equilibrio · 25 emp., económico</th><td>No en 10 años</td><td>No en 10 años</td></tr>
-<tr><th scope="row">Equilibrio · 50 emp., gama media</th><td>~2,2 años</td><td>~11 meses</td></tr>
-<tr><th scope="row">Equilibrio · 50 emp., económico</th><td>No en 10 años</td><td>~3,8 años</td></tr>
+<tr><th scope="row">Inversión inicial</th><td>US$17.500 – 60.000</td><td>US$4.500 – 12.000</td></tr>
+<tr><th scope="row">Mantenimiento + hosting/año</th><td>US$3.825 – 15.600</td><td>US$1.875 – 6.000</td></tr>
+<tr><th scope="row">TCO 3 años</th><td>US$28.975 – 106.800</td><td>US$10.125 – 30.000</td></tr>
+<tr><th scope="row">TCO 5 años</th><td>US$36.625 – 138.000</td><td>US$13.875 – 42.000</td></tr>
+<tr><th scope="row">Equilibrio · 10 emp., económico</th><td>No en 10 años</td><td>No en 10 años</td></tr>
+<tr><th scope="row">Equilibrio · 10 emp., gama media</th><td>No en 10 años</td><td>~1,5 años</td></tr>
+<tr><th scope="row">Equilibrio · 25 emp., gama media</th><td>~6,3 años</td><td>~6 meses</td></tr>
+<tr><th scope="row">Equilibrio · 25 emp., económico</th><td>No en 10 años</td><td>~3,8 años</td></tr>
+<tr><th scope="row">Equilibrio · 50 emp., gama media</th><td>~2 años</td><td>~2 meses</td></tr>
+<tr><th scope="row">Equilibrio · 50 emp., económico</th><td>No en 10 años</td><td>~9 meses</td></tr>
 </tbody>
 </table>
 <figcaption>El punto de equilibrio se calcula con el punto medio de cada rango.</figcaption>
@@ -122,13 +123,13 @@ Para un núcleo integrado (clientes y ventas, pedidos ligados a inventario, tick
 
 ¿Qué dicen los números?
 
-- **Con 10 personas, el SaaS gana como stack completo.** Ni el escenario más favorable justifica reemplazarlo todo por un sistema propio (más abajo vemos qué sí conviene a una empresa pequeña).
-- **Con 25 personas, depende del stack.** Frente a un stack de gama media, un desarrollo eficiente se paga en unos dos años y medio. Frente a uno económico, no se paga.
-- **Con 50 personas, la balanza se inclina.** Contra un stack de gama media se recupera incluso a precios tradicionales, en poco más de dos años.
+- **Con 10 personas, depende del stack.** A precios tradicionales gana el SaaS. Con IA, un sistema propio frente a un stack de gama media se paga en un año y medio; frente a uno económico, sigue ganando el SaaS (más abajo vemos qué sí conviene a una empresa pequeña).
+- **Con 25 personas, el sistema propio empieza a ganar.** Frente a un stack de gama media, con IA se paga en unos seis meses. Frente a uno económico, en casi cuatro años.
+- **Con 50 personas, la balanza se inclina.** Contra un stack de gama media se recupera incluso a precios tradicionales, en unos dos años, y con IA en cuestión de meses.
 
 ## Cuánto acelera la IA el desarrollo (y cuánto no)
 
-La promesa de "hasta la mitad" no sale de la nada, pero tampoco es automática. Esto dicen los estudios públicos:
+Nuestra estimación de que los costos bajan de forma importante no sale de la nada, pero tampoco es automática. Esto dicen los estudios públicos:
 
 - **GitHub ([Peng et al., 2023](https://arxiv.org/abs/2302.06590)):** en un experimento controlado, quienes usaron Copilot completaron una tarea acotada (programar un servidor web) un **55,8% más rápido**.
 - **Microsoft, Accenture y una empresa Fortune 100 ([Cui et al., 2025](https://pubsonline.informs.org/doi/10.1287/mnsc.2025.00535)):** en tres experimentos de campo con 4.867 desarrolladores, el asistente aumentó un **26%** las tareas completadas.
@@ -148,7 +149,7 @@ Con software propio, **el código y los datos son tuyos**, siempre que el contra
 
 Sé escéptico con quien te diga que el software a la medida siempre conviene. El SaaS es mejor cuando:
 
-- **Tu equipo es muy pequeño.** Con menos de 10 a 15 personas, las licencias suelen ser baratas.
+- **Tu equipo es muy pequeño y usas herramientas económicas.** Con menos de 10 personas y planes básicos, las licencias suelen ser baratas.
 - **Tus procesos son estándar.** La contabilidad, la planilla y el correo rara vez son tu ventaja competitiva.
 - **No tienes presupuesto para una inversión inicial**, o necesitas algo funcionando esta semana.
 - **No tienes un proveedor de confianza** que se quede después de la entrega.
@@ -173,7 +174,7 @@ Son proyectos acotados que arrancan rápido y se pagan con lo que ahorras en tie
 
 ## Checklist: ¿te conviene software a la medida?
 
-- [ ] Tienes más de 20 a 25 personas o planeas crecer pronto.
+- [ ] Tienes 10 o más personas con planes de gama media, o 25 o más con planes económicos, o planeas crecer pronto.
 - [ ] Pagas cinco o más suscripciones que se solapan o que nadie usa completas.
 - [ ] Alguien de tu equipo exporta y concilia datos entre herramientas cada semana.
 - [ ] Tu forma de operar no encaja en los campos predeterminados de las herramientas.

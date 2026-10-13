@@ -12,9 +12,9 @@ lang: "es"
 draft: false
 faq:
   - q: "¿Cuánto cuesta un software a la medida en Costa Rica?"
-    a: "Depende del alcance. Como referencia pública, en Clutch el rango de proyecto más común es de US$10.000 a US$49.999. En kiub estimamos desde unos cientos de dólares para una automatización puntual hasta US$25.000–60.000 para un sistema de gestión integrado a precios tradicionales. Son estimados, no cotizaciones."
+    a: "Depende del alcance. Como referencia pública, en Clutch el rango de proyecto más común es de US$10.000 a US$49.999. En kiub, la mayoría de los proyectos cuesta menos de US$5.000: desde unos cientos de dólares por una automatización puntual hasta US$4.500–12.000 por un sistema integrado. Son estimados, no cotizaciones."
   - q: "¿Cuánto cobra por hora un desarrollador en Costa Rica?"
-    a: "Según Lemon.io, la tarifa mediana de un desarrollador senior freelance en Costa Rica ronda los US$41 por hora. En Clutch, la mayoría de las empresas de desarrollo cobra entre US$25 y US$49 por hora."
+    a: "Según Lemon.io, la tarifa mediana de un desarrollador senior freelance en Costa Rica ronda los US$41 por hora. En Clutch, la mayoría de las empresas de desarrollo cobra entre US$25 y US$49 por hora. En kiub trabajamos por debajo de US$20 por hora."
   - q: "¿Cuánto tarda en estar lista una primera versión?"
     a: "Un sistema sencillo puede estar en semanas; un sistema de gestión integrado, varios meses. Lo recomendable es dividir el proyecto en etapas con entregables visibles para empezar a usarlo antes."
   - q: "¿Qué debo pedir por escrito al contratar desarrollo de software?"
@@ -44,25 +44,26 @@ Estas son cifras que puedes verificar:
 
 - **Tarifa por hora en Costa Rica:** la mediana de un desarrollador senior freelance ronda los **US$41 por hora**, según [Lemon.io](https://lemon.io/rate-calculator/costa-rica/).
 - **Tarifas de empresas de desarrollo:** en [Clutch](https://clutch.co/developers/pricing), la mayoría de las empresas listadas cobra **entre US$25 y US$49 por hora**, y el rango de proyecto más común es **US$10.000 a US$49.999**.
+- **Tarifa de kiub:** trabajamos por debajo de US$20 por hora, gracias al desarrollo asistido por IA.
 - **Proyectos a la medida en general:** la [encuesta de GoodFirms de 2026](https://www.goodfirms.co/resources/custom-software-development-cost-survey) indica que el **65,7%** de los proyectos cuesta entre US$30.000 y US$100.000 y el **14,1%**, menos de US$30.000.
 
 Ojo: estas cifras son globales o de plataformas internacionales y mezclan proyectos de todo tamaño. Sirven como orientación, no como precio para tu caso.
 
 ## Rangos por tipo de proyecto (estimado de kiub)
 
-La siguiente tabla **es nuestra estimación**, no una estadística de mercado ni una cotización. La calculamos con horas típicas que vemos en proyectos para pymes, multiplicadas por la franja de US$25–50 por hora de Clutch.
+La siguiente tabla **es nuestra estimación**, no una estadística de mercado ni una cotización. La calculamos con horas típicas que vemos en proyectos para pymes, multiplicadas por la franja de US$25–50 por hora de Clutch (precio de mercado) y por nuestra tarifa de US$15–20 por hora con IA.
 
 <figure class="table-figure">
 <table>
-<caption>Rangos orientativos por tipo de proyecto, a precios tradicionales (estimado de kiub, USD)</caption>
+<caption>Rangos orientativos por tipo de proyecto: mercado frente a kiub (estimado de kiub, USD)</caption>
 <thead>
-<tr><th scope="col">Tipo de proyecto</th><th scope="col">Ejemplos</th><th scope="col">Horas típicas</th><th scope="col">Rango orientativo</th></tr>
+<tr><th scope="col">Tipo de proyecto</th><th scope="col">Ejemplos</th><th scope="col">Horas típicas</th><th scope="col">Mercado (US$25–50/h)</th><th scope="col">kiub + IA (US$15–20/h)</th></tr>
 </thead>
 <tbody>
-<tr><th scope="row">Automatización puntual</th><td>Pedido que genera tarea y aviso; reporte semanal automático</td><td>20 – 80</td><td>US$500 – 4.000</td></tr>
-<tr><th scope="row">Sitio web profesional</th><td>Sitio informativo bilingüe con contacto por WhatsApp</td><td>40 – 120</td><td>US$1.000 – 6.000</td></tr>
-<tr><th scope="row">Sistema específico sencillo</th><td>Cotizador con tus reglas, control de pedidos, portal de clientes</td><td>120 – 400</td><td>US$3.000 – 20.000</td></tr>
-<tr><th scope="row">Sistema de gestión integrado</th><td>Ventas, pedidos, inventario y tickets conectados con facturación</td><td>700 – 1.200</td><td>US$25.000 – 60.000</td></tr>
+<tr><th scope="row">Automatización puntual</th><td>Pedido que genera tarea y aviso; reporte semanal automático</td><td>20 – 80</td><td>US$500 – 4.000</td><td>US$300 – 1.600</td></tr>
+<tr><th scope="row">Sitio web profesional</th><td>Sitio informativo bilingüe con contacto por WhatsApp</td><td>40 – 120</td><td>US$1.000 – 6.000</td><td>US$600 – 2.400</td></tr>
+<tr><th scope="row">Sistema específico sencillo</th><td>Cotizador con tus reglas, control de pedidos, portal de clientes</td><td>120 – 400</td><td>US$3.000 – 20.000</td><td>US$1.800 – 8.000</td></tr>
+<tr><th scope="row">Sistema de gestión integrado</th><td>Ventas, pedidos, inventario y tickets conectados con facturación</td><td>700 – 1.200 (kiub + IA: 300 – 600)</td><td>US$17.500 – 60.000</td><td>US$4.500 – 12.000</td></tr>
 </tbody>
 </table>
 <figcaption>A esto se suma el mantenimiento (convención de la industria: 15–20% anual del costo de construcción) y el hosting.</figcaption>
@@ -70,7 +71,7 @@ La siguiente tabla **es nuestra estimación**, no una estadística de mercado ni
 
 Un sistema específico sencillo suele resolver un proceso concreto que el software genérico no cubre bien. En Autocrash Solutions, por ejemplo, construimos el sitio web público y, aparte, una aplicación web de acceso privado para administrar el inventario de repuestos usados.
 
-**¿Y con IA?** En kiub trabajamos con desarrollo asistido por inteligencia artificial y **estimamos que puede reducir el costo tradicional hasta a la mitad**, sobre todo en sistemas con mucho trabajo repetitivo (formularios, pantallas de administración, pruebas). Es nuestra estimación, no una garantía: los estudios públicos muestran ahorros muy distintos según la tarea, desde más del 50% en tareas acotadas hasta ninguno en proyectos complejos. Lo explicamos con detalle en [SaaS o software a la medida: las cuentas para una pyme](/blog/saas-vs-software-a-la-medida-pymes/).
+**¿Y con IA?** En kiub usamos IA en todo el proceso de desarrollo, por eso nuestras tarifas rondan los **US$15–20 por hora** y la mayoría de los proyectos quedan **por debajo de US$5.000**. La IA recorta sobre todo el trabajo repetitivo (formularios, pantallas de administración, pruebas); la revisión de cada línea sigue siendo humana. Lo explicamos con detalle en [SaaS o software a la medida: las cuentas para una pyme](/blog/saas-vs-software-a-la-medida-pymes/).
 
 ## Antes de pedir cotizaciones: prepara tu caso
 
