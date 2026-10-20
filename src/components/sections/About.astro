@@ -8,7 +8,6 @@ const { about: a } = Astro.props;
 const { t } = useI18n(Astro.url);
 const valueIcons = ['heart', 'layers', 'shield'] as const;
 const valueColors = ['var(--green)', 'var(--orange)', 'var(--blue)'];
-const statColors = ['var(--green)', 'var(--orange)', 'var(--blue)', 'var(--text)'];
 ---
 <style>
   .about-team-img {
@@ -64,15 +63,6 @@ const statColors = ['var(--green)', 'var(--orange)', 'var(--blue)', 'var(--text)
         src="/assets/team.jpg"
         alt={t.ui.teamAlt}
       />
-
-      <div class="about-stats reveal">
-        {a.stats.map((s, i) => (
-          <div class="stat">
-            <div class="num" style={`color:${statColors[i]}`}>{s.num}</div>
-            <div class="lbl">{s.lbl}</div>
-          </div>
-        ))}
-      </div>
     </div>
   </div>
 </section>

@@ -1,4 +1,3 @@
-interface Stat { num: string; lbl: string }
 interface ValueItem { t: string; d: string }
 interface ServiceItem { key: string; color: string; icon: string; name: string; desc: string; points: string[] }
 interface TestimonialItem { q: string; n: string; r: string; c: string }
@@ -11,7 +10,7 @@ export interface SiteContent {
   nav: { home: string; services: string; blog?: string; contact: string; cta: string };
   hero: { eyebrow: string; title_a: string; title_b: string; sub: string; ctaPrimary: string; ctaGhost: string; steps: string[] };
   trust: { label: string };
-  about: { eyebrow: string; title: string; paragraphs: string[]; stats: Stat[]; values: ValueItem[] };
+  about: { eyebrow: string; title: string; paragraphs: string[]; values: ValueItem[] };
   services: { eyebrow: string; title: string; sub: string; cta: string; learn: string; items: ServiceItem[] };
   testimonials: { eyebrow: string; title: string; items: TestimonialItem[] };
   process: { eyebrow: string; title: string; sub: string; steps: ProcessStep[] };
@@ -57,10 +56,6 @@ export const content: Content = {
         "Somos una empresa especializada en desarrollo de software, análisis de negocio, automatización y soluciones basadas en datos. Trabajamos junto a nuestros clientes para entender sus procesos, identificar oportunidades de mejora y construir herramientas que realmente generen resultados.",
         "No nos enfocamos únicamente en desarrollar aplicaciones; buscamos crear soluciones que permitan ahorrar tiempo, optimizar operaciones y facilitar la toma de decisiones.",
         "Nuestro compromiso es convertir la tecnología en una ventaja competitiva para cada empresa con la que trabajamos."
-      ],
-      stats: [
-        { num: "+80", lbl: "Proyectos entregados" },
-        { num: "14 años", lbl: "Construyendo software" },
       ],
       values: [
         { t: "Cercanía real", d: "Un equipo accesible que habla tu idioma, no en tecnicismos." },
@@ -206,10 +201,6 @@ export const content: Content = {
         "We specialize in software development, business analysis, automation and data-driven solutions. We work alongside our clients to understand their processes, identify opportunities for improvement and build tools that deliver real results.",
         "We don't just build applications; we create solutions that save time, streamline operations and make decision-making easier.",
         "Our commitment is to turn technology into a competitive advantage for every company we work with."
-      ],
-      stats: [
-        { num: "+80", lbl: "Projects delivered" },
-        { num: "14 years", lbl: "Building software" },
       ],
       values: [
         { t: "Close collaboration", d: "An accessible team that speaks your language, not jargon." },
