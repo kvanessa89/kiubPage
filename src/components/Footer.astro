@@ -1,5 +1,6 @@
 ---
 import { useI18n } from '../i18n';
+import Logo from './Logo.astro';
 const { t, r } = useI18n(Astro.url);
 const f = t.footer;
 ---
@@ -8,8 +9,7 @@ const f = t.footer;
     <div class="foot-top">
       <div class="foot-brand">
         <a href={r.home} aria-label={t.ui.homeAria}>
-          <img class="kiub-logo logo-on-dark" src="/assets/kiub-logo.png" alt="kiub" height="30" style="margin-bottom:18px" />
-          <img class="kiub-logo logo-on-light" src="/assets/kiub-logo-dark.png" alt="kiub" height="30" style="margin-bottom:18px" />
+          <Logo style="margin-bottom:18px" />
         </a>
         <p>{f.tagline}</p>
         <div class="socials">
@@ -57,7 +57,7 @@ const f = t.footer;
     <div class="foot-bottom">
       <div class="foot-legal">
         <p>© 2022–{new Date().getFullYear()} kiub. {f.rights} <span class="chips"><i></i><i></i><i></i></span></p>
-        <p>Céd. jur. 3‑101‑854183 · Escazú, San José, Costa Rica, 10203 · <a href="mailto:info@kiub.co">info@kiub.co</a> · <a href="/legal/">Datos legales</a></p>
+        <p>{f.legalId} 3‑101‑854183 · Escazú, San José, Costa Rica, 10203 · <a href="mailto:info@kiub.co">info@kiub.co</a> · <a href={r.legal}>{f.legalLink}</a></p>
       </div>
     </div>
   </div>

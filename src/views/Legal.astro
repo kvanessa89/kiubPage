@@ -1,0 +1,85 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFab from '../components/WhatsAppFab.astro';
+import { useI18n } from '../i18n';
+
+const { t } = useI18n(Astro.url);
+const l = t.legalPage;
+
+const profiles: [string, string][] = [
+  ['LinkedIn', 'https://www.linkedin.com/company/kiub-co/'],
+  ['Instagram', 'https://www.instagram.com/kiub.co'],
+  ['Facebook', 'https://www.facebook.com/kiub.co.cr'],
+  ['Clutch', 'https://clutch.co/profile/kiub'],
+  ['GoodFirms', 'https://www.goodfirms.co/company/kiub'],
+];
+
+const external = (href: string) => href.startsWith('https://');
+---
+<Base title={t.meta.legal.title} description={t.meta.legal.description}>
+  <Nav />
+  <main>
+    <header class="phead">
+      <div class="hero-grid-bg"></div>
+      <div class="glow g2" style="top:-180px"></div>
+      <div class="wrap" style="position:relative;z-index:2">
+        <span class="eyebrow center">{l.eyebrow}</span>
+        <h1 class="h-lg" style="margin-top:20px;font-weight:400">{l.title}</h1>
+      </div>
+    </header>
+
+    <section class="section" style="padding-top:24px;padding-bottom:72px">
+      <div class="wrap">
+        <article class="doc">
+          <h2>{l.aboutTitle}</h2>
+          {l.about.map((p) => <p>{p}</p>)}
+
+          <h2>{l.dataTitle}</h2>
+          <div class="doc-table">
+            <table class="kv">
+              {l.rows.map(([k, v]) => (
+                <tr><th>{k}</th><td>{v}</td></tr>
+              ))}
+            </table>
+          </div>
+
+          <h2>{l.founderTitle}</h2>
+          <p><strong>Carol Hernández</strong> — {l.founderRole}.<br />{l.founderBio}</p>
+
+          <h2>{l.addressTitle}</h2>
+          <p>{l.address}</p>
+
+          <h2>{l.contactTitle}</h2>
+          <ul>
+            {l.contact.map((c) => (
+              <li>
+                <strong>{c.lbl}:</strong>{' '}
+                {c.href
+                  ? <a href={c.href} {...(external(c.href) && { target: '_blank', rel: 'noopener noreferrer' })}>{c.val}</a>
+                  : c.val}
+              </li>
+            ))}
+          </ul>
+
+          <h2>{l.profilesTitle}</h2>
+          <ul>
+            {profiles.map(([label, href]) => (
+              <li><a href={href} target="_blank" rel="noopener noreferrer">{label}</a></li>
+            ))}
+          </ul>
+
+          <h2>{l.moreTitle}</h2>
+          <ul>
+            {l.more.map(([label, href]) => (
+              <li><a href={href}>{label}</a></li>
+            ))}
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+  <Footer />
+  <WhatsAppFab />
+</Base>

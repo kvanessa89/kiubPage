@@ -1,0 +1,10 @@
+---
+import { Image } from 'astro:assets';
+import logoLight from '../assets/brand/kiub-logo.png';
+import logoDark from '../assets/brand/kiub-logo-dark.png';
+
+interface Props { style?: string }
+const { style } = Astro.props;
+---
+<Image class="kiub-logo logo-on-dark" src={logoLight} alt="kiub" height={30} densities={[1, 2, 3]} format="webp" loading="eager" style={style} />
+<Image class="kiub-logo logo-on-light" src={logoDark} alt="kiub" height={30} densities={[1, 2, 3]} format="webp" loading="eager" style={style} />

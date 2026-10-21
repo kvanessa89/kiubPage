@@ -5,6 +5,7 @@ interface ProcessStep { t: string; d: string }
 interface ContactInfo { k: string; lbl: string; val: string; href?: string }
 interface FaqItem { q: string; a: string }
 interface FooterCol { h: string; links: [string, string][] }
+interface LegalContact { lbl: string; val: string; href?: string }
 
 export interface SiteContent {
   nav: { home: string; services: string; blog?: string; contact: string; cta: string };
@@ -15,8 +16,8 @@ export interface SiteContent {
   testimonials: { eyebrow: string; title: string; items: TestimonialItem[] };
   process: { eyebrow: string; title: string; sub: string; steps: ProcessStep[] };
   findUs: { label: string; on: string };
-  meta: Record<'home' | 'services' | 'contact', { title: string; description: string }>;
-  ui: { homeAria: string; openMenu: string; teamAlt: string; ogAlt: string; switchLang: string; switchLangAria: string };
+  meta: Record<'home' | 'services' | 'contact' | 'legal', { title: string; description: string }>;
+  ui: { homeAria: string; openMenu: string; teamAlt: string; ogAlt: string; switchLang: string; switchLangAria: string; founderLinkedinAria: string };
   ctaBand: { title: string; sub: string; primary: string; ghost: string };
   servicesPage: { eyebrow: string; title: string; sub: string };
   contactPage: {
@@ -30,7 +31,17 @@ export interface SiteContent {
     faqTitle: string;
     faq: FaqItem[];
   };
-  footer: { tagline: string; cols: FooterCol[]; rights: string };
+  legalPage: {
+    eyebrow: string; title: string;
+    aboutTitle: string; about: string[];
+    dataTitle: string; rows: [string, string][];
+    founderTitle: string; founderRole: string; founderBio: string;
+    addressTitle: string; address: string;
+    contactTitle: string; contact: LegalContact[];
+    profilesTitle: string;
+    moreTitle: string; more: [string, string][];
+  };
+  footer: { tagline: string; cols: FooterCol[]; rights: string; legalId: string; legalLink: string };
 }
 
 export interface Content { es: SiteContent; en: SiteContent }
@@ -52,7 +63,9 @@ export const content: Content = {
       eyebrow: "Quiénes somos",
       title: "Construimos tecnología con propósito de negocio.",
       paragraphs: [
-        "Hola, soy Carol Hernández. En kiub creemos que el mejor software nace de comprender primero el negocio.",
+        "Hola, soy Carol Hernández, fundadora de kiub.",
+        "Soy ingeniera graduada del Instituto Tecnológico de Costa Rica (ITCR), con una licenciatura en Desarrollo Web de la UNED y una maestría en Gerencia de Proyectos con énfasis en Tecnologías de la Información del ITCR. Cuento con más de 14 años de experiencia en el desarrollo de software y he trabajado en empresas multinacionales, tanto en roles de desarrollo senior como en posiciones de liderazgo.",
+        "En kiub creemos que el mejor software nace de comprender primero el negocio.",
         "Somos una empresa especializada en desarrollo de software, análisis de negocio, automatización y soluciones basadas en datos. Trabajamos junto a nuestros clientes para entender sus procesos, identificar oportunidades de mejora y construir herramientas que realmente generen resultados.",
         "No nos enfocamos únicamente en desarrollar aplicaciones; buscamos crear soluciones que permitan ahorrar tiempo, optimizar operaciones y facilitar la toma de decisiones.",
         "Nuestro compromiso es convertir la tecnología en una ventaja competitiva para cada empresa con la que trabajamos."
@@ -124,15 +137,20 @@ export const content: Content = {
       contact: {
         title: "Contacto | Software a la medida en Escazú, Costa Rica",
         description: "Hablemos sobre las necesidades de tu negocio y cómo kiub puede ayudarte con software, automatización y soluciones digitales.",
+        },
+      legal: {
+        title: "Datos legales | kiub",
+        description: "Datos legales de kiub: razón social, cédula jurídica, marca registrada, domicilio en Escazú, Costa Rica, y canales de contacto.",
       },
     },
     ui: {
       homeAria: "kiub inicio",
       openMenu: "Abrir menú",
-      teamAlt: "Equipo kiub",
+      teamAlt: "Carol Hernández, fundadora de kiub",
       ogAlt: "kiub - Software a medida y automatización de procesos",
       switchLang: "EN",
       switchLangAria: "View in English",
+      founderLinkedinAria: "Perfil de LinkedIn de Carol Hernández",
     },
     ctaBand: {
       title: "¿Tienes un reto que resolver?",
@@ -171,6 +189,40 @@ export const content: Content = {
         { q: "¿Dan soporte después del lanzamiento?", a: "Sí. Ofrecemos planes de soporte y mantenimiento para que tu solución siga funcionando y evolucionando con tu negocio." },
       ],
     },
+    legalPage: {
+      eyebrow: "Empresa",
+      title: "Datos legales",
+      aboutTitle: "Quiénes somos",
+      about: [
+        "kiub es una empresa costarricense de tecnología y consultoría de software, fundada en 2022 y ubicada en San Rafael de Escazú. Diseñamos software a la medida, automatizamos procesos y creamos páginas web enfocadas en las necesidades reales de cada negocio.",
+        "Trabajamos con empresas que quieren ordenar su operación con herramientas propias: sistemas internos, plataformas de gestión, facturación y cobros, CRM y sitios web. Algunos de los equipos que ya construyen con kiub son Autocrash Solutions, OviqCR y Grupo Jurídico.",
+      ],
+      dataTitle: "Datos legales",
+      rows: [
+        ["Nombre comercial", "kiub"],
+        ["Razón social", "3-101-854183 SOCIEDAD ANONIMA"],
+        ["Cédula jurídica", "3-101-854183"],
+        ["Actividad", "Consultores informáticos"],
+        ["Año de fundación", "2022"],
+        ["Domicilio", "San Rafael de Escazú, San José, Costa Rica, 10203"],
+        ["Marca", "KIUB® — marca de servicios en clase 42 (diseño y desarrollo de software), inscrita el 13 de marzo de 2023 en el Registro de la Propiedad Intelectual de Costa Rica a nombre de 3-101-854183 S.A. (expediente n.º 2022-0009622)"],
+      ],
+      founderTitle: "Fundadora",
+      founderRole: "Founder & CEO",
+      founderBio: "Carol fundó kiub en 2022 y cuenta con 14 años de experiencia construyendo software.",
+      addressTitle: "Dirección",
+      address: "San Rafael de Escazú, San José, Costa Rica, 10203",
+      contactTitle: "Contacto",
+      contact: [
+        { lbl: "Correo", val: "info@kiub.co", href: "mailto:info@kiub.co" },
+        { lbl: "Teléfono / WhatsApp", val: "+506 6451 1884", href: "https://wa.me/50664511884" },
+        { lbl: "EE. UU. / WhatsApp", val: "+1 (786) 603-9420", href: "https://wa.me/17866039420" },
+        { lbl: "Horario", val: "lunes a viernes de 8:00 a 17:00, sábados de 8:00 a 12:00" },
+      ],
+      profilesTitle: "Redes y perfiles",
+      moreTitle: "Más información",
+      more: [["Contacto", "/contacto/"], ["Servicios", "/servicios/"]],
+    },
     footer: {
       tagline: "Tecnología y consultoría que impulsan el crecimiento de tu negocio, paso a paso.",
       cols: [
@@ -179,6 +231,8 @@ export const content: Content = {
         { h: "Empresa", links: [["Quiénes somos", "/#about"], ["Blog", "/blog/"], ["Hablemos", "/contacto/"]] },
       ],
       rights: "Todos los derechos reservados.",
+      legalId: "Céd. jur.",
+      legalLink: "Datos legales",
     },
   },
   en: {
@@ -197,14 +251,16 @@ export const content: Content = {
       eyebrow: "Who we are",
       title: "We build technology with a business purpose.",
       paragraphs: [
-        "Hi, I'm Carol Hernández. At kiub, we believe the best software starts with understanding the business first.",
+        "Hi, I'm Carol Hernández, founder of kiub.",
+        "I'm an engineering graduate of the Costa Rica Institute of Technology (ITCR), with a Licentiate degree in Web Development from UNED and a master's degree in Project Management with an emphasis in Information Technology, also from ITCR. I have more than 14 years of experience in software development and have worked at multinational companies in both senior development and leadership roles.",
+        "At kiub, we believe the best software starts with understanding the business.",
         "We specialize in software development, business analysis, automation and data-driven solutions. We work alongside our clients to understand their processes, identify opportunities for improvement and build tools that deliver real results.",
         "We don't just build applications; we create solutions that save time, streamline operations and make decision-making easier.",
         "Our commitment is to turn technology into a competitive advantage for every company we work with."
       ],
       values: [
         { t: "Close collaboration", d: "An accessible team that speaks your language, not jargon." },
-        { t: "Block-by-block delivery", d: "Visible progress at every stage, not just at the end." },
+        { t: "Incremental delivery", d: "Visible progress at every stage, not just at the end." },
         { t: "Engineering quality", d: "Maintainable, secure code built to scale." },
       ],
     },
@@ -251,7 +307,7 @@ export const content: Content = {
       sub: "No surprises. You know what happens at every stage of the project.",
       steps: [
         { t: "Discovery", d: "We understand your business, goals and the challenge to solve." },
-        { t: "Design", d: "We define the solution, the scope and a block-by-block plan." },
+        { t: "Design", d: "We define the solution, the scope and a plan delivered in stages." },
         { t: "Development", d: "We build with frequent deliveries you can see and test." },
         { t: "Launch & support", d: "We go live and support your growth." },
       ],
@@ -269,15 +325,20 @@ export const content: Content = {
       contact: {
         title: "Contact | Custom software in Escazú, Costa Rica",
         description: "Let's talk about your business needs and how kiub can help with software, automation and digital solutions.",
+        },
+      legal: {
+        title: "Legal information | kiub",
+        description: "kiub legal information: registered company name, legal ID, registered trademark, address in Escazú, Costa Rica, and contact channels.",
       },
     },
     ui: {
       homeAria: "kiub home",
       openMenu: "Open menu",
-      teamAlt: "kiub team",
+      teamAlt: "Carol Hernández, founder of kiub",
       ogAlt: "kiub - Custom software and process automation",
       switchLang: "ES",
       switchLangAria: "Ver en español",
+      founderLinkedinAria: "Carol Hernández on LinkedIn",
     },
     ctaBand: {
       title: "Got a challenge to solve?",
@@ -316,6 +377,40 @@ export const content: Content = {
         { q: "Do you provide support after launch?", a: "Yes. We offer support and maintenance plans so your solution keeps running and evolving with your business." },
       ],
     },
+    legalPage: {
+      eyebrow: "Company",
+      title: "Legal information",
+      aboutTitle: "Who we are",
+      about: [
+        "kiub is a Costa Rican technology and software consulting company, founded in 2022 and based in San Rafael de Escazú. We design custom software, automate processes and build websites focused on the real needs of each business.",
+        "We work with companies that want to organize their operations with their own tools: internal systems, management platforms, billing and collections, CRM and websites. Clients include Autocrash Solutions, OviqCR and Grupo Jurídico.",
+      ],
+      dataTitle: "Legal information",
+      rows: [
+        ["Trade name", "kiub"],
+        ["Registered company name", "3-101-854183 SOCIEDAD ANONIMA"],
+        ["Legal ID (cédula jurídica)", "3-101-854183"],
+        ["Business activity", "IT consulting"],
+        ["Year founded", "2022"],
+        ["Registered address", "San Rafael de Escazú, San José, Costa Rica, 10203"],
+        ["Trademark", "KIUB® — service mark in class 42 (software design and development), registered on March 13, 2023 with the Costa Rican Intellectual Property Registry in the name of 3-101-854183 S.A. (file no. 2022-0009622)"],
+      ],
+      founderTitle: "Founder",
+      founderRole: "Founder & CEO",
+      founderBio: "Carol founded kiub in 2022 and has 14 years of experience building software.",
+      addressTitle: "Address",
+      address: "San Rafael de Escazú, San José, Costa Rica, 10203",
+      contactTitle: "Contact",
+      contact: [
+        { lbl: "Email", val: "info@kiub.co", href: "mailto:info@kiub.co" },
+        { lbl: "Phone / WhatsApp", val: "+506 6451 1884", href: "https://wa.me/50664511884" },
+        { lbl: "US / WhatsApp", val: "+1 (786) 603-9420", href: "https://wa.me/17866039420" },
+        { lbl: "Hours", val: "Monday to Friday, 8:00 a.m. to 5:00 p.m.; Saturdays, 8:00 a.m. to noon (Costa Rica time)" },
+      ],
+      profilesTitle: "Social media and profiles",
+      moreTitle: "More information",
+      more: [["Contact", "/en/contact/"], ["Services", "/en/services/"]],
+    },
     footer: {
       tagline: "Technology and consulting that drive your business growth, step by step.",
       cols: [
@@ -324,6 +419,8 @@ export const content: Content = {
         { h: "Company", links: [["Who we are", "/en/#about"], ["Let's talk", "/en/contact/"]] },
       ],
       rights: "All rights reserved.",
+      legalId: "Legal ID",
+      legalLink: "Legal information",
     },
   },
 };

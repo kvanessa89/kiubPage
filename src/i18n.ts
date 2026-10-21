@@ -1,11 +1,11 @@
 import { content } from './data/content';
 
 export type Lang = 'es' | 'en';
-export type PageKey = 'home' | 'services' | 'contact';
+export type PageKey = 'home' | 'services' | 'contact' | 'legal';
 
 export const routes: Record<Lang, Record<PageKey, string>> = {
-  es: { home: '/', services: '/servicios/', contact: '/contacto/' },
-  en: { home: '/en/', services: '/en/services/', contact: '/en/contact/' },
+  es: { home: '/', services: '/servicios/', contact: '/contacto/', legal: '/legal/' },
+  en: { home: '/en/', services: '/en/services/', contact: '/en/contact/', legal: '/en/legal/' },
 };
 
 export const getLang = (url: URL): Lang =>

@@ -5,14 +5,14 @@ const nav = t.nav;
 const page = getPage(Astro.url);
 const otherHref = routes[lang === 'es' ? 'en' : 'es'][page];
 const onBlog = isBlog(Astro.url);
-const isActive = (key: typeof page) => !onBlog && key === page;
+const isActive = (key: typeof page) => !onBlog && routes[lang][key] === Astro.url.pathname;
+import Logo from './Logo.astro';
 ---
 <nav class="nav" style="background:var(--bg-soft);border-bottom-color:var(--line)">
   <div class="wrap nav-inner">
     <a href={r.home} class="brand" aria-label={t.ui.homeAria}>
       <span style="height:30px;display:inline-flex">
-        <img class="kiub-logo logo-on-dark" src="/assets/kiub-logo.png" alt="kiub" height="30" />
-        <img class="kiub-logo logo-on-light" src="/assets/kiub-logo-dark.png" alt="kiub" height="30" />
+        <Logo />
       </span>
     </a>
 

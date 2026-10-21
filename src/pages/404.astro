@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFab from '../components/WhatsAppFab.astro';
+import { SITE } from '../lib/blog';
+---
+<Base
+  title="Página no encontrada | kiub"
+  description="La página que buscas no existe o cambió de dirección."
+  canonical={`${SITE}/`}
+  alternates={false}
+>
+  <meta slot="head" name="robots" content="noindex" />
+  <Nav />
+  <main>
+    <header class="phead" style="padding-bottom:96px">
+      <div class="hero-grid-bg"></div>
+      <div class="glow g2" style="top:-180px"></div>
+      <div class="wrap" style="position:relative;z-index:2">
+        <span class="eyebrow center">Error 404</span>
+        <h1 class="h-lg" style="margin-top:20px;font-weight:400">No encontramos esta página.</h1>
+        <p class="lead">Puede que la dirección haya cambiado o que el enlace tenga un error. Te ayudamos a llegar a donde ibas.</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px">
+          <a href="/" class="btn btn-primary btn-lg">Ir al inicio</a>
+          <a href="/servicios/" class="btn btn-ghost btn-lg">Ver servicios</a>
+          <a href="/contacto/" class="btn btn-ghost btn-lg">Contacto</a>
+        </div>
+        <p style="margin-top:36px;color:var(--text-mute);font-size:15px">
+          Page not found. <a href="/en/" style="color:var(--text);text-decoration:underline;text-underline-offset:3px">Go to the English homepage</a>.
+        </p>
+      </div>
+    </header>
+  </main>
+  <Footer />
+  <WhatsAppFab />
+</Base>

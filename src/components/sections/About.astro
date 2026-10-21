@@ -1,6 +1,8 @@
 ---
 import type { SiteContent } from '../../data/content';
+import { Image } from 'astro:assets';
 import Icon from '../Icon.astro';
+import founderPhoto from '../../assets/brand/carol-hernandez.jpg';
 import Heading from '../Heading.astro';
 import { useI18n } from '../../i18n';
 interface Props { about: SiteContent['about'] }
@@ -8,6 +10,8 @@ const { about: a } = Astro.props;
 const { t } = useI18n(Astro.url);
 const valueIcons = ['heart', 'layers', 'shield'] as const;
 const valueColors = ['var(--green)', 'var(--orange)', 'var(--blue)'];
+const FOUNDER = 'Carol Hernández';
+const FOUNDER_LINKEDIN = 'https://www.linkedin.com/in/carolhernandezcr/';
 ---
 <style>
   .about-team-img {
@@ -16,9 +20,18 @@ const valueColors = ['var(--green)', 'var(--orange)', 'var(--blue)'];
     min-height: 280px;
     border-radius: 16px;
     object-fit: cover;
-    object-position: left top;
+    object-position: left 20%;
     display: block;
   }
+  .founder-in {
+    display: inline-flex;
+    vertical-align: -0.12em;
+    margin-left: 0.3em;
+    color: var(--text-mute);
+    transition: color 0.2s;
+  }
+  .founder-in:hover, .founder-in:focus-visible { color: var(--blue); }
+  .founder-in svg { width: 0.9em; height: 0.9em; display: block; }
   @media (max-width: 880px) {
     .about-team-img {
       flex: none;
@@ -38,7 +51,20 @@ const valueColors = ['var(--green)', 'var(--orange)', 'var(--blue)'];
           <p
             class={i === 0 ? 'lead' : undefined}
             style={i > 0 ? 'margin-top:18px;color:var(--text-dim)' : undefined}
-          >{p}</p>
+          >
+            {i === 0 && p.includes(FOUNDER) ? (
+              <>
+                {p.split(FOUNDER)[0]}{FOUNDER}<a
+                  class="founder-in"
+                  href={FOUNDER_LINKEDIN}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={t.ui.founderLinkedinAria}
+                  title="LinkedIn"
+                ><svg width="0.9em" height="0.9em" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:block"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>{p.split(FOUNDER).slice(1).join(FOUNDER)}
+              </>
+            ) : p}
+          </p>
         ))}
       </div>
 
@@ -58,10 +84,14 @@ const valueColors = ['var(--green)', 'var(--orange)', 'var(--blue)'];
     </div>
 
     <div class="about-right" style="display:flex;flex-direction:column;gap:18px">
-      <img
+      <Image
         class="about-team-img reveal"
-        src="/assets/team.jpg"
+        src={founderPhoto}
         alt={t.ui.teamAlt}
+        widths={[480, 720, 1060]}
+        sizes="(max-width: 880px) calc(100vw - 40px), 526px"
+        format="webp"
+        loading="lazy"
       />
     </div>
   </div>
