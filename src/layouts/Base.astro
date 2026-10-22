@@ -5,8 +5,8 @@ import { useI18n, routes, getPage } from '../i18n';
 interface Props {
   title?: string;
   description?: string;
-  /** Páginas fuera de las rutas fijas (p. ej. el blog) pasan su URL canónica. */
-  canonical?: string;
+  /** Páginas fuera de las rutas fijas (p. ej. el blog) pasan su URL canónica; false la omite (p. ej. la 404). */
+  canonical?: string | false;
   /** false = sin hreflang ni og:locale:alternate (páginas sin traducción). */
   alternates?: boolean;
   ogType?: 'website' | 'article';
@@ -73,7 +73,7 @@ const organization = {
     <ClientRouter />
 
     <!-- SEO -->
-    <link rel="canonical" href={canonical} />
+    {canonical && <link rel="canonical" href={canonical} />}
     {alternates && (
       <>
         <link rel="alternate" hreflang="es" href={abs(routes.es[page])} />
@@ -88,7 +88,7 @@ const organization = {
     <meta property="og:description" content={description} />
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content="kiub" />
-    <meta property="og:url" content={canonical} />
+    {canonical && <meta property="og:url" content={canonical} />}
     <meta property="og:locale" content={lang === 'es' ? 'es_CR' : 'en_US'} />
     {alternates && <meta property="og:locale:alternate" content={lang === 'es' ? 'en_US' : 'es_CR'} />}
     <meta property="og:image" content={ogImage} />

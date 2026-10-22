@@ -3,12 +3,11 @@ import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppFab from '../components/WhatsAppFab.astro';
-import { SITE } from '../lib/blog';
 ---
 <Base
   title="Página no encontrada | kiub"
   description="La página que buscas no existe o cambió de dirección."
-  canonical={`${SITE}/`}
+  canonical={false}
   alternates={false}
 >
   <meta slot="head" name="robots" content="noindex" />
