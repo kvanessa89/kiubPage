@@ -44,6 +44,9 @@ const sp = t.servicesPage;
                     </li>
                   ))}
                 </ul>
+                {item.guide && (
+                  <a class="svc-guide" href={item.guide[1]}>{item.guide[0]}</a>
+                )}
               </div>
             </div>
           ))}

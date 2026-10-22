@@ -3,6 +3,7 @@ title: "5 señales de que tu pyme ya superó las hojas de cálculo"
 description: "Cinco señales prácticas de que tu pyme necesita software a la medida, cómo la IA cambió el costo de construirlo y cómo empezar sin arriesgar tu presupuesto."
 slug: "senales-pyme-necesita-software-a-la-medida"
 date: 2026-10-12
+updated: 2026-10-22
 author: "Carol Hernández"
 tags: ["Software a la medida", "Pymes", "Inteligencia artificial", "Automatización"]
 cover: "../../assets/blog/senales-pyme-necesita-software-a-la-medida/cover.webp"
@@ -98,6 +99,8 @@ Un temor común es embarcarse en un proyecto grande, caro e interminable. La for
 5. **Crece por etapas.** Una vez que la primera parte funciona, se agregan módulos o integraciones según la prioridad del negocio y el presupuesto disponible.
 
 Este enfoque permite que la inversión sea gradual y que cada etapa justifique la siguiente.
+
+Para ver qué tipo de sistema resuelve cada caso, revisa nuestra [**guía de software a la medida para pymes en Costa Rica**](/blog/software-a-la-medida-pymes-costa-rica/).
 
 ## Preguntas que conviene hacerle a un proveedor
 

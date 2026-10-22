@@ -5,7 +5,7 @@ Artículos de `/blog/`. Cada `.md` de esta carpeta es un post (este README no se
 ## Cómo agregar un artículo nuevo
 
 1. Crea `src/content/blog/<slug>.md` copiando el frontmatter de un post existente. El nombre del archivo y el campo `slug` deben ser iguales.
-2. `title` ≤ 60 caracteres; `description` de 140 a 160; `slug` en minúsculas con guiones; `tags` de la lista existente cuando sea posible. El primer tag es la categoría que se muestra en las tarjetas.
+2. `title` ≤ 60 caracteres (si es más largo, hasta 90, agrega `seoTitle` ≤ 60: el `title` queda como H1 y `seoTitle` va en `<title>` y `og:title`); `description` de 140 a 160; `slug` en minúsculas con guiones; `tags` de la lista existente cuando sea posible. El primer tag es la categoría que se muestra en las tarjetas.
 3. Portada en `src/assets/blog/<slug>/cover.webp` (16:9, ≥ 1600 px) y `coverAlt` descriptivo. De la portada se genera también la imagen para redes (1200×630).
 4. Tablas como HTML (`<figure class="table-figure"><table>…`), nunca como imagen.
 5. `faq` con 3–4 preguntas si aplica; `related` con 2–3 slugs. Deja en el cuerpo un `## Preguntas frecuentes`: ahí se inserta el acordeón generado desde `faq` (y el JSON-LD `FAQPage`). Lo que vaya después (p. ej. "Fuentes") se muestra a continuación.

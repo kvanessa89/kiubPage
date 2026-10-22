@@ -1,5 +1,5 @@
 interface ValueItem { t: string; d: string }
-interface ServiceItem { key: string; color: string; icon: string; name: string; desc: string; points: string[] }
+interface ServiceItem { key: string; color: string; icon: string; name: string; desc: string; points: string[]; guide?: [string, string] }
 interface TestimonialItem { q: string; n: string; r: string; c: string }
 interface ProcessStep { t: string; d: string }
 interface ContactInfo { k: string; lbl: string; val: string; href?: string }
@@ -87,7 +87,8 @@ export const content: Content = {
           key: "soft", color: "var(--green)", icon: "code",
           name: "Software a la medida",
           desc: "Plataformas, apps y sistemas internos diseñados exactamente para tu operación — no plantillas genéricas.",
-          points: ["Aplicaciones web y móviles", "Sistemas internos y dashboards", "Integraciones con tus herramientas", "Arquitectura lista para escalar"],
+          points: ["Aplicaciones web y móviles", "Sistemas internos y dashboards", "Integraciones con tus herramientas", "Arquitectura lista para escalar", "CRM y ERP a la medida para pymes", "Integración con facturación electrónica"],
+          guide: ["Guía: software a la medida para pymes →", "/blog/software-a-la-medida-pymes-costa-rica/"],
         },
         {
           key: "auto", color: "var(--orange)", icon: "gear",
@@ -275,7 +276,7 @@ export const content: Content = {
           key: "soft", color: "var(--green)", icon: "code",
           name: "Custom software",
           desc: "Platforms, apps and internal systems designed exactly for your operation — not generic templates.",
-          points: ["Web & mobile applications", "Internal systems & dashboards", "Integrations with your tools", "Architecture ready to scale"],
+          points: ["Web & mobile applications", "Internal systems & dashboards", "Integrations with your tools", "Architecture ready to scale", "Custom CRM and ERP for SMBs", "Electronic invoicing integration"],
         },
         {
           key: "auto", color: "var(--orange)", icon: "gear",

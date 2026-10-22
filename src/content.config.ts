@@ -5,7 +5,8 @@ import { z } from 'astro/zod';
 const blog = defineCollection({
   loader: glob({ pattern: ['**/*.{md,mdx}', '!**/README.md'], base: './src/content/blog' }),
   schema: ({ image }) => z.object({
-    title: z.string().max(60),
+    title: z.string().max(90),
+    seoTitle: z.string().max(60).optional(), // <title> y og:title; obligatorio si title pasa de 60
     description: z.string().min(140).max(160),
     slug: z.string().regex(/^[a-z0-9-]+$/),
     date: z.coerce.date(),
@@ -21,6 +22,9 @@ const blog = defineCollection({
     featured: z.boolean().optional(),
     faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
     related: z.array(z.string()).optional(), // slugs
+  }).refine((d) => d.title.length <= 60 || d.seoTitle, {
+    message: 'title de más de 60 caracteres: agrega seoTitle (≤ 60)',
+    path: ['seoTitle'],
   }),
 });
 

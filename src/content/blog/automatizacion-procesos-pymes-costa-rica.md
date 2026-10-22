@@ -3,6 +3,7 @@ title: "Automatización de procesos para pymes en Costa Rica"
 description: "Ejemplos prácticos de automatización de procesos para pymes en Costa Rica: pedidos, cobros, facturas y reportes. Qué automatizar primero y con qué herramientas."
 slug: "automatizacion-procesos-pymes-costa-rica"
 date: 2026-10-12
+updated: 2026-10-22
 author: "Carol Hernández"
 tags: ["Automatización", "Pymes", "Costa Rica", "Productividad"]
 cover: "../../assets/blog/automatizacion-procesos-pymes-costa-rica/cover.webp"
@@ -97,6 +98,8 @@ Empieza por uno. Mide cuánto tiempo toma hoy, automatízalo, y vuelve a medir. 
 </figure>
 
 No es una elección de todo o nada. Muchas veces lo correcto es empezar con una herramienta sin código para validar el proceso y, si el volumen crece o las reglas se complican, pasarlo a un desarrollo propio. En kiub usamos IA en todo el proceso de desarrollo, por eso nuestras tarifas rondan los US$15–20 por hora y la mayoría de los proyectos quedan por debajo de US$5.000.
+
+Cuando la automatización ya no alcanza, el siguiente paso es un [**sistema a la medida para tu pyme**](/blog/software-a-la-medida-pymes-costa-rica/).
 
 ## Errores comunes
 

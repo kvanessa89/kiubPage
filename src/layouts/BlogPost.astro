@@ -32,7 +32,13 @@ const toc = headings.filter((h) => h.depth === 2).map(({ slug, text }) => ({ slu
 const faqIndex = remarkPluginFrontmatter.faqIndex as number | undefined;
 if (faqIndex !== undefined) toc.splice(faqIndex, 0, { slug: 'preguntas-frecuentes', text: 'Preguntas frecuentes' });
 
-const author = { '@type': 'Person', name: data.author, jobTitle: 'Founder & CEO', url: `${SITE}/` };
+const author = {
+  '@type': 'Person',
+  name: data.author,
+  jobTitle: 'Founder & CEO',
+  url: `${SITE}/`,
+  sameAs: ['https://www.linkedin.com/in/carolhernandezcr/'],
+};
 const schema = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -44,7 +50,7 @@ const schema = {
       datePublished: isoDate(data.date),
       dateModified: isoDate(modified),
       author,
-      publisher: { '@type': 'Organization', name: 'kiub', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/assets/kiub-logo.png` } },
+      publisher: { '@type': 'Organization', name: 'kiub', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/assets/kiub-logo-dark.webp` } },
       mainEntityOfPage: url,
       inLanguage: 'es-CR',
       keywords: data.tags.join(', '),
@@ -67,7 +73,7 @@ const schema = {
 };
 ---
 <Base
-  title={`${data.title} | kiub`}
+  title={data.seoTitle ?? `${data.title} | kiub`}
   description={data.description}
   canonical={url}
   alternates={false}
@@ -176,7 +182,8 @@ const schema = {
     observer?.disconnect();
     const links = [...document.querySelectorAll<HTMLAnchorElement>('.toc a')];
     if (links.length) {
-      const mark = (id: string) => links.forEach((l) => l.classList.toggle('on', l.hash === `#${id}`));
+      // l.hash viene codificado (í → %C3%AD); el id del título no, así que se compara decodificado.
+      const mark = (id: string) => links.forEach((l) => l.classList.toggle('on', decodeURIComponent(l.hash) === `#${id}`));
       observer = new IntersectionObserver(
         (entries) => entries.forEach((e) => e.isIntersecting && mark(e.target.id)),
         { rootMargin: '-90px 0px -70% 0px' },

@@ -3,6 +3,7 @@ title: "SaaS o software a la medida: las cuentas para una pyme"
 description: "Comparamos con precios públicos de 2026 el costo real de 10 suscripciones SaaS frente a un sistema propio para pymes de 10, 25 y 50 personas en Costa Rica."
 slug: "saas-vs-software-a-la-medida-pymes"
 date: 2026-10-12
+updated: 2026-10-22
 author: "Carol Hernández"
 tags: ["SaaS", "Software a la medida", "Pymes", "Costos"]
 cover: "../../assets/blog/saas-vs-software-a-la-medida-pymes/cover.webp"
@@ -161,6 +162,8 @@ Y el software propio tiene costos reales: la inversión inicial, el mantenimient
 En la práctica, la respuesta más sensata para muchas pymes es **híbrida**. Se construye un núcleo propio para lo que te diferencia (cómo vendes, cómo despachas, cómo atiendes) y que concentra los datos. Para lo que ya está bien resuelto se mantienen pocas herramientas SaaS: facturación electrónica homologada, contabilidad y correo. Así pagas licencias solo donde aportan, eliminas la mayoría de las integraciones frágiles y tienes una sola fuente de verdad.
 
 La clave es empezar en pequeño. Primero entiendes el negocio, después construyes una primera versión que funcione para el proceso que más duele y luego creces según el uso real, no según una lista de deseos.
+
+En [**software a la medida para pymes: CRM, inventario, facturación y ERP**](/blog/software-a-la-medida-pymes-costa-rica/) explicamos cómo arrancar con un núcleo pequeño.
 
 ## ¿Y si tu empresa es más pequeña?
 
