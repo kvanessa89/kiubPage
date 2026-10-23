@@ -507,7 +507,13 @@ button{ font-family:inherit; cursor:pointer; }
   .hero-b .lead{ margin-left:auto; margin-right:auto; }
   .hero-b{ text-align:center; }
   .hero-visual{ min-height:340px; order:-1; }
-  .about{ grid-template-columns:1fr; }
+  .about{ grid-template-columns:1fr; gap:0; }
+  /* Móvil: título → foto → texto → valores (en escritorio la foto queda en la columna derecha) */
+  .about-left{ display:contents; }
+  .about-left > :first-child{ order:1; }
+  .about-right{ order:2; margin-top:24px; }
+  .about-copy{ order:3; }
+  .about-values{ order:4; }
   .svc-grid{ grid-template-columns:1fr; }
   .tst-grid{ grid-template-columns:1fr; }
   .steps{ grid-template-columns:1fr 1fr; }
